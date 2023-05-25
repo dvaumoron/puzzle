@@ -28,11 +28,11 @@ widgets:
     groupId: 3
   blog:
     kind: blog
-    wikiId: 4
+    blogId: 4
     groupId: 4
   forum:
     kind: forum
-    wikiId: 5
+    forumId: 5
     groupId: 5
 
 widgetPages:
