@@ -78,17 +78,28 @@ func main() {
 	}
 
 	widgets := asMap("widgets", frameConfig["widgets"], ctxLogger)
-	for _, widgetPage := range asSlice("", frameConfig["widgetPages"], ctxLogger) {
+	for _, widgetPage := range asSlice("widgetPages", frameConfig["widgetPages"], ctxLogger) {
 		castedWidgetPage := asMap("widgetPage", widgetPage, ctxLogger)
 		emplacement := asString("widgetPage.emplacement", castedWidgetPage["emplacement"], ctxLogger)
-		parentPage, ok := site.GetPageWithPath(emplacement)
-		if !ok {
-			ctxLogger.Fatal("Failed to retrive parentPage", zap.String("emplacement", emplacement))
+		ok := false
+		var parentPage puzzleweb.Page
+		if emplacement != "" {
+			parentPage, ok = site.GetPageWithPath(emplacement)
+			if !ok {
+				ctxLogger.Fatal("Failed to retrive parentPage", zap.String("emplacement", emplacement))
+			}
 		}
-		parentPage.AddSubPage(makeWidgetPage(
+
+		widgetPage := makeWidgetPage(
 			asString("widgetPage.name", castedWidgetPage["name"], ctxLogger), globalConfig,
-			widgets[asString("widgetPage.widgetRef", castedWidgetPage["widgetRef"], ctxLogger)]),
+			widgets[asString("widgetPage.widgetRef", castedWidgetPage["widgetRef"], ctxLogger)],
 		)
+
+		if ok {
+			parentPage.AddSubPage(widgetPage)
+		} else {
+			site.AddPage(widgetPage)
+		}
 	}
 
 	initSpan.End()
@@ -110,18 +121,21 @@ func makeWidgetPage(pageName string, globalConfig *config.GlobalConfig, widgetCo
 	case "forum":
 		forumId := asUint64("widget.forumId", castedConfig["forumId"], ctxLogger)
 		groupId := asUint64("widget.groupId", castedConfig["groupId"], ctxLogger)
-		return forum.MakeForumPage(pageName, globalConfig.CreateForumConfig(forumId, groupId))
+		args := asStringSlice("widget.templates", castedConfig["templates"], ctxLogger)
+		return forum.MakeForumPage(pageName, globalConfig.CreateForumConfig(forumId, groupId, args...))
 	case "blog":
 		blogId := asUint64("widget.blogId", castedConfig["blogId"], ctxLogger)
 		groupId := asUint64("widget.groupId", castedConfig["groupId"], ctxLogger)
-		return blog.MakeBlogPage(pageName, globalConfig.CreateBlogConfig(blogId, groupId))
+		args := asStringSlice("widget.templates", castedConfig["templates"], ctxLogger)
+		return blog.MakeBlogPage(pageName, globalConfig.CreateBlogConfig(blogId, groupId, args...))
 	case "wiki":
 		wikiId := asUint64("widget.wikiId", castedConfig["wikiId"], ctxLogger)
 		groupId := asUint64("widget.groupId", castedConfig["groupId"], ctxLogger)
-		return wiki.MakeWikiPage(pageName, globalConfig.CreateWikiConfig(wikiId, groupId))
+		args := asStringSlice("widget.templates", castedConfig["templates"], ctxLogger)
+		return wiki.MakeWikiPage(pageName, globalConfig.CreateWikiConfig(wikiId, groupId, args...))
 	case "remote":
-		widgetName := asString("widget.widgetName", castedConfig["widgetName"], ctxLogger)
 		serviceAddr := asString("widget.serviceAddr", castedConfig["serviceAddr"], ctxLogger)
+		widgetName := asString("widget.widgetName", castedConfig["widgetName"], ctxLogger)
 		objectId := asUint64("widget.objectId", castedConfig["objectId"], ctxLogger)
 		groupId := asUint64("widget.groupId", castedConfig["groupId"], ctxLogger)
 		return remotewidget.MakeRemotePage(
