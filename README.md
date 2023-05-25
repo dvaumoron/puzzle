@@ -1,2 +1,3 @@
-# puzzle
-This project use the PuzzleWeb library in a configurable way without needing code change.
+# PuzzleFrame
+
+This project use the [PuzzleWeb](https://github.com/dvaumoron/puzzleweb) library in a configurable way without needing code change.
