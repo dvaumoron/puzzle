@@ -148,7 +148,32 @@ func makeWidgetPage(pageName string, globalConfig *config.GlobalConfig, widgetCo
 }
 
 func asUint64(name string, value any, ctxLogger otelzap.LoggerWithCtx) uint64 {
+	if value == nil {
+		return 0
+	}
 	switch casted := value.(type) {
+	case uint:
+		return uint64(casted)
+	case uint8:
+		return uint64(casted)
+	case uint16:
+		return uint64(casted)
+	case uint32:
+		return uint64(casted)
+	case uint64:
+		return uint64(casted)
+	case int:
+		return uint64(casted)
+	case int8:
+		return uint64(casted)
+	case int16:
+		return uint64(casted)
+	case int32:
+		return uint64(casted)
+	case int64:
+		return uint64(casted)
+	case float32:
+		return uint64(casted)
 	case float64:
 		return uint64(casted)
 	case string:
@@ -164,6 +189,9 @@ func asUint64(name string, value any, ctxLogger otelzap.LoggerWithCtx) uint64 {
 }
 
 func asMap(name string, value any, ctxLogger otelzap.LoggerWithCtx) map[string]any {
+	if value == nil {
+		return nil
+	}
 	m, ok := value.(map[string]any)
 	if !ok {
 		ctxLogger.Fatal(castMsg, zap.String("valueName", name))
@@ -172,6 +200,9 @@ func asMap(name string, value any, ctxLogger otelzap.LoggerWithCtx) map[string]a
 }
 
 func asSlice(name string, value any, ctxLogger otelzap.LoggerWithCtx) []any {
+	if value == nil {
+		return nil
+	}
 	s, ok := value.([]any)
 	if !ok {
 		ctxLogger.Fatal(castMsg, zap.String(valueName, name))
@@ -180,6 +211,9 @@ func asSlice(name string, value any, ctxLogger otelzap.LoggerWithCtx) []any {
 }
 
 func asString(name string, value any, ctxLogger otelzap.LoggerWithCtx) string {
+	if value == nil {
+		return ""
+	}
 	s, ok := value.(string)
 	if !ok {
 		ctxLogger.Fatal(castMsg, zap.String(valueName, name))
