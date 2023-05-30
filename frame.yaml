@@ -36,6 +36,12 @@ widgets:
     kind: forum
     forumId: 5
     groupId: 5
+  gallery:
+    kind: remote
+    serviceAddr: localhost:51351
+    widgetName: gallery
+    objectId: 6
+    groupId: 0
 
 widgetPages:
   - emplacement: "about"
@@ -50,3 +56,5 @@ widgetPages:
     widgetRef: blog
   - name: forum
     widgetRef: forum
+  - name: gallery
+    widgetRef: gallery
