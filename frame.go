@@ -79,8 +79,8 @@ func main() {
 	}
 
 	widgets := asMap("widgets", frameConfig["widgets"], ctxLogger)
-	for _, widgetPage := range asSlice("widgetPages", frameConfig["widgetPages"], ctxLogger) {
-		castedWidgetPage := asMap("widgetPage", widgetPage, ctxLogger)
+	for _, widgetPageConfig := range asSlice("widgetPages", frameConfig["widgetPages"], ctxLogger) {
+		castedWidgetPage := asMap("widgetPage", widgetPageConfig, ctxLogger)
 		emplacement := asString("widgetPage.emplacement", castedWidgetPage["emplacement"], ctxLogger)
 		ok := false
 		var parentPage puzzleweb.Page
