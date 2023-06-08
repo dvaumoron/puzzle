@@ -45,7 +45,6 @@ var version string
 func main() {
 	site, globalConfig, initSpan := puzzleweb.BuildDefaultSite(config.WebKey, version)
 	rightClient := globalConfig.RightClient
-
 	ctxLogger := globalConfig.CtxLogger
 
 	frameConfigBody, err := os.ReadFile(os.Getenv("FRAME_CONFIG_PATH"))
