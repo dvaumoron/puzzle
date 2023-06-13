@@ -90,8 +90,8 @@ github.com/dvaumoron/puzzletelemetry v1.1.1 h1:7Cvd/VLu6PHce5lXjBSk+xyz3RJieUkXG
 github.com/dvaumoron/puzzletelemetry v1.1.1/go.mod h1:OKAkWUV8OiGm04oNhhZ32yPTp4qoTVqx4lYA5AJR78A=
 github.com/dvaumoron/puzzletemplateservice v1.0.0 h1:E4AqIPgSaunOAuA10pKxKe5M7M/wKwia9r7FUYnVfdE=
 github.com/dvaumoron/puzzletemplateservice v1.0.0/go.mod h1:UkhiUqU6AsZnvOP/bYl8IrCq38D4Raw+9ewNH7nO0N8=
-github.com/dvaumoron/puzzleweb v1.6.0 h1:L5W8vXpbNQOFV0bq2JVdsnTM9GN2Z/bPm46TlNJcNYM=
-github.com/dvaumoron/puzzleweb v1.6.0/go.mod h1:gVJFh1jLh4cqFjFNzv5uWhfrF6BQuW6/ptLVTT6qlaY=
+github.com/dvaumoron/puzzleweb v1.6.1 h1:WBdas7wI1konmxi5ohgk761t83kjv0RitotmP36Se0I=
+github.com/dvaumoron/puzzleweb v1.6.1/go.mod h1:gVJFh1jLh4cqFjFNzv5uWhfrF6BQuW6/ptLVTT6qlaY=
 github.com/dvaumoron/puzzlewidgetservice v1.2.0 h1:emjrpOqV3o9vwU9+I3dg1jT4QegxM83B7/UOg47FiJE=
 github.com/dvaumoron/puzzlewidgetservice v1.2.0/go.mod h1:4SoELSrFGpUQOU1tnLa0wn+uoom19ZfBIrPZBQyr5dY=
 github.com/dvaumoron/puzzlewikiservice v1.3.0 h1:M2PQ5jFTcwJ8kB1FgiaUB9+PJHOIwzwNbejkYwPYpxI=
