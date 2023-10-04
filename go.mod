@@ -1,9 +1,11 @@
 module github.com/dvaumoron/puzzleframe
 
-go 1.20
+go 1.21
+
+toolchain go1.21.1
 
 require (
-	github.com/dvaumoron/puzzleweb v1.8.5
+	github.com/dvaumoron/puzzleweb v1.8.6
 	github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.0
 	go.uber.org/zap v1.24.0
 	gopkg.in/yaml.v3 v3.0.1
