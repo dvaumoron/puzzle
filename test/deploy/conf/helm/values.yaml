@@ -1,0 +1,13 @@
+image:
+  pullPolicy: Never
+telemetry:
+  envName: "fakeCluster"
+externalService:
+  mongoAddr: ""
+  postgresqlAddr: ""
+  redisAddr: ""
+appServer:
+  pageSize: "3"
+  extractSize: "1000"
+passstrengthserver:
+  defaultPassword: "Password@1234"

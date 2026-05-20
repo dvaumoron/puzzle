@@ -1,0 +1,75 @@
+// Copyright 2022 puzzleloginservice authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option go_package = "github.com/dvaumoron/puzzleloginservice";
+option java_multiple_files = true;
+option java_package = "io.dvaumoron.puzzleloginservice";
+option java_outer_classname = "PuzzleLoginServiceProto";
+
+package puzzleloginservice;
+
+// The login service definition.
+service Login {
+    rpc Verify (LoginRequest) returns (Response);
+    rpc Register (LoginRequest) returns (Response);
+    rpc ChangeLogin (ChangeRequest) returns (Response);
+    rpc ChangePassword (ChangeRequest) returns (Response);
+    rpc GetUsers (UserIds) returns (Users);
+    rpc ListUsers (RangeRequest) returns (Users);
+    rpc Delete (UserId) returns (Response);
+}
+
+message LoginRequest {
+    string login = 1;
+    string salted = 2;
+}
+
+message Response {
+    bool success = 1;
+    uint64 id = 2;
+}
+
+message ChangeRequest {
+    uint64 userId = 1;
+    string newLogin = 2;
+    string oldSalted = 3;
+    string newSalted = 4;
+}
+
+message UserIds {
+    repeated uint64 ids = 1;    
+}
+
+message RangeRequest {
+    uint64 start = 1;
+    uint64 end = 2;
+    string filter = 3;
+}
+
+message User {
+    uint64 id = 1;
+    string login = 2;
+    int64 registredAt = 3;
+}
+
+message Users {
+    repeated User list = 1;
+    uint64 total = 2;
+}
+
+message UserId {
+    uint64 id = 1;
+}

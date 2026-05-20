@@ -1,0 +1,121 @@
+image:
+  pullPolicy: IfNotPresent
+telemetry:
+  envName: ""
+httpService:
+  ports:
+    - port: 9080
+      protocol: TCP
+      targetPort: http-service
+  type: ClusterIP
+grpcService:
+  ports:
+    - port: 50051
+      protocol: TCP
+      targetPort: grpc-service
+  type: ClusterIP
+externalService:
+  mongoAddr: "mongodb://exemplehost:27017"
+  postgresqlAddr: "host=exemplehost user=postgres port=5432 sslmode=disable"
+  redisAddr: "exemplehost:6379"
+kubernetesClusterDomain: cluster.local
+appServer:
+  pageSize: ""
+  extractSize: ""
+  internalDateFormat: "2/1/2006 15:04:05"
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 500m
+    memory: 128Mi
+blogServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+cachedRightServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+forumServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 64Mi
+galleryServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+loginServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 64Mi
+markdownServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+profileServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+passstrengthserver:
+  defaultPassword: ""
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 16Mi
+rightServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 64Mi
+saltServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+sessionServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+settingsServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+telemetryCollector:
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 128Mi
+templateServer:
+  replicas: 1
+  imageName: puzzlegotemplateserver
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi
+wikiServer:
+  replicas: 1
+  imageVersion: latest
+  resourcesLimits:
+    cpu: 50m
+    memory: 32Mi

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "puzzle.fullname" . }}-app-service
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.httpService.type }}
+  selector:
+    app: puzzleapp
+    {{- include "puzzle.selectorLabels" . | nindent 4 }}
+  ports:
+	  {{- .Values.httpService.ports | toYaml | nindent 2 -}}

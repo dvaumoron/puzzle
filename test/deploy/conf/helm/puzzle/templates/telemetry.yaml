@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "puzzle.fullname" . }}-telemetry
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: puzzletelemetry
+  template:
+    metadata:
+      labels:
+        app: puzzletelemetry
+        {{- include "puzzle.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - image: otel/opentelemetry-collector:{{ .Values.telemetyCollector.imageVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: puzzletelemetry
+        ports:
+        - containerPort: 4317
+          hostPort: 4317
+        - containerPort: 8889
+          hostPort: 8889
+        resources:
+          limits:
+            {{- .Values.telemetyCollector.resourcesLimits | toYaml | nindent 12 -}}

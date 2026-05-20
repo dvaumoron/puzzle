@@ -1,0 +1,156 @@
+#
+# Copyright 2023 puzzlerightserver authors.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
+load("dvaumoron/sql.crn", "ConstDurationSec", "DeclareDBInterfaces", "DeclareVarArgsUtil", "CRUD", "BuildConvTypeDesc", "SelectQueryFunc", "ExecFunc")
+
+def newModelFile():
+    f = NewFile("model")
+    f.HeaderComment("Generated from model.crn - do not edit.")
+    return f
+
+commonFile = newModelFile()
+
+timeOutDuration = ConstDurationSec(commonFile, "timeout", 10)
+
+# interfaces allowing *sql.DB or *sql.Tx
+dbInterfaces = DeclareDBInterfaces(commonFile, "ExecerContext", "QueryerContext", "RowQueryerContext")
+
+commonFile.Line()
+
+varArgsUtil = DeclareVarArgsUtil(commonFile, "varArgsFilter", "anyConverter")
+
+commonFile.Save("common.go")
+
+roleNameDesc = BuildConvTypeDesc("RoleName", {
+    "Id": Uint64(),
+    "Name": String(),
+})
+
+roleNameFile = newModelFile()
+
+CRUD(
+    roleNameFile, roleNameDesc,
+    timeOutDuration=timeOutDuration,
+    dbInterfaces=dbInterfaces,
+)
+
+roleNameFile.Line()
+
+roleDesc = BuildConvTypeDesc("Role", {
+    "Id": Uint64(),
+    "NameId": Uint64(),
+    "ObjectId": Uint64(),
+    "ActionFlags": Uint8(),
+})
+
+roleFile = newModelFile()
+
+CRUD(
+    roleFile, roleDesc,
+    timeOutDuration=timeOutDuration,
+    dbInterfaces=dbInterfaces,
+)
+
+roleFile.Line()
+
+userRoleFile = newModelFile()
+
+CRUD(
+    userRoleFile, BuildConvTypeDesc("UserRole", {
+        "Id": Uint64(),
+        "UserId": Uint64(),
+        "RoleId": Uint64(),
+    }),
+    timeOutDuration=timeOutDuration,
+    dbInterfaces=dbInterfaces,
+)
+
+userRoleFile.Line()
+
+SelectQueryFunc(
+    roleFile, "GetRolesByUserId",
+    typeDesc=roleDesc, where="r.id in (select o.role_id from user_roles as o where o.user_id = @userId)", selectAlias="r",
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces, inputFields={"userId": Uint64()},
+)
+
+roleFile.Line()
+
+SelectQueryFunc(
+    roleFile, "GetRolesByObjectIds",
+    typeDesc=roleDesc, where="r.object_id in (@objectIds)", selectAlias="r",
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces,
+    inputFields={"objectIds": Index().Uint64()}, varArgsUtil=varArgsUtil,
+)
+
+roleFile.Line()
+
+SelectQueryFunc(
+    roleFile, "GetRoleByNameAndObjectId",
+    typeDesc=roleDesc, where="r.name_id = n.id and n.name = @name and r.object_id = @objectId",
+    selectAlias="r", selectJoins={"role_names": "n"}, multi=False,
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces, inputFields={"name": String(), "objectId": Uint64()},
+)
+
+roleFile.Line()
+
+SelectQueryFunc(
+    roleFile, "GetRoleByNameIdAndObjectId",
+    typeDesc=roleDesc, where="r.name_id = @nameId and r.object_id = @objectId", selectAlias="r", multi=False,
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces, inputFields={"nameId": Uint64(), "objectId": Uint64()},
+)
+
+roleFile.Line()
+
+SelectQueryFunc(
+    roleFile, "GetRolesByNameAndObjectIds",
+    typeDesc=roleDesc, where="r.name_id = n.id and n.name = @name and r.object_id in (@objectIds)",
+    selectAlias="r", selectJoins={"role_names": "n"},
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces,
+    inputFields={"name": String(), "objectIds": Index().Uint64()}, varArgsUtil=varArgsUtil,
+)
+
+SelectQueryFunc(
+    roleNameFile, "GetRoleNameByName",
+    typeDesc=roleNameDesc, where="n.name = @name", selectAlias="n", multi=False,
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces, inputFields={"name": String()},
+)
+
+roleNameFile.Line()
+
+SelectQueryFunc(
+    roleNameFile, "GetRoleNamesByIds",
+    typeDesc=roleNameDesc, where="n.id in (@ids)", selectAlias="n",
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces,
+    inputFields={"ids": Index().Uint64()}, varArgsUtil=varArgsUtil,
+)
+
+roleNameFile.Line()
+
+ExecFunc(
+    userRoleFile, "DeleteUserRolesByUserId",
+    query="delete from user_roles where user_id = @userId;",
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces, inputFields={"userId": Uint64()},
+)
+
+ExecFunc(
+    roleNameFile, "DeleteUnusedRoleNames",
+    query="delete from role_names where id not in (select distinct(name_id) from roles);",
+    timeOutDuration=timeOutDuration, dbInterfaces=dbInterfaces,
+)
+
+roleNameFile.Save("rolename.go")
+roleFile.Save("role.go")
+userRoleFile.Save("userrole.go")

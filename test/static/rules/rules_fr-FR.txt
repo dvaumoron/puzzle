@@ -1,0 +1,2 @@
+
+Vous devriez utiliser un mot de passe long contenant des caractères spéciaux, des lettres majuscules et des chiffres.

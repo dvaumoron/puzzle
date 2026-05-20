@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: {{ include "puzzle.fullname" . }}-app
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.appServer.replicas }}
+  selector:
+    matchLabels:
+      app: puzzleapp
+  template:
+    metadata:
+      labels:
+        app: puzzleapp
+        {{- include "puzzle.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: PAGE_SIZE
+          value: "{{ .Values.appServer.pageSize }}"
+        - name: EXTRACT_SIZE
+          value: "{{ .Values.appServer.extractSize }}"
+        - name: DATE_FORMAT
+          value: "{{ .Values.appServer.internalDateFormat }}"
+        - name: SESSION_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-session-service:50051"
+        - name: TEMPLATE_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-template-service:50051"
+        - name: SETTINGS_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-settings-service:50051"
+        - name: PASSSTRENGTH_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-passstrength-service:50051"
+        - name: SALT_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-salt-service:50051"
+        - name: LOGIN_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-login-service:50051"
+        - name: RIGHT_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-cachedright-service:50051"
+        - name: PROFILE_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-profile-service:50051"
+        - name: FORUM_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-forum-service:50051"
+        - name: MARKDOWN_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-markdown-service:50051"
+        - name: BLOG_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-blog-service:50051"
+        - name: WIKI_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-wiki-service:50051"
+        - name: GALLERY_SERVICE_ADDR
+          value: "{{ include "puzzle.fullname" . }}-gallery-service:50051"
+        - name: EXEC_ENV
+          value: {{ .Values.telemetry.envName }}
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+          value: "http://$(HOST_IP):4317"
+        image: puzzleweb:{{ .Values.appServer.imageVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: puzzleweb
+        ports:
+        - containerPort: 9080
+          name: http-service
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /favicon.ico
+            port: 9080
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+        resources:
+          limits:
+            {{- .Values.appServer.resourcesLimits | toYaml | nindent 12 -}}

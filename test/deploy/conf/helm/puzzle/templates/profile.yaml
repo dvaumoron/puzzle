@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: {{ include "puzzle.fullname" . }}-profile
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.profileServer.replicas }}
+  selector:
+    matchLabels:
+      app: puzzleprofile
+  template:
+    metadata:
+      labels:
+        app: puzzleprofile
+        {{- include "puzzle.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_SERVER_ADDR
+          value: "{{ .Values.externalService.mongoAddr }}"
+        - name: MONGODB_SERVER_DB
+          value: "profilesDB"
+        - name: EXEC_ENV
+          value: {{ .Values.telemetry.envName }}
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+          value: "http://$(HOST_IP):4317"
+        image: puzzleprofileserver:{{ .Values.profileServer.imageVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: puzzleprofile
+        ports:
+        - containerPort: 50051
+          name: grpc-service
+        readinessProbe:
+          failureThreshold: 3
+          grpc:
+            port: 50051
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+        resources:
+          limits:
+            {{- .Values.profileServer.resourcesLimits | toYaml | nindent 12 -}}

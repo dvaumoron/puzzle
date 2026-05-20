@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: {{ include "puzzle.fullname" . }}-forum
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.forumServer.replicas }}
+  selector:
+    matchLabels:
+      app: puzzleforum
+  template:
+    metadata:
+      labels:
+        app: puzzleforum
+        {{- include "puzzle.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: DB_SERVER_TYPE
+          value: "postgres"
+        - name: DB_SERVER_ADDR
+          value: "{{ .Values.externalService.postgresqlAddr }} dbname=forumdb"
+        - name: EXEC_ENV
+          value: {{ .Values.telemetry.envName }}
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+          value: "http://$(HOST_IP):4317"
+        image: puzzleforumserver:{{ .Values.forumServer.imageVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: puzzleforum
+        ports:
+        - containerPort: 50051
+          name: grpc-service
+        readinessProbe:
+          failureThreshold: 3
+          grpc:
+            port: 50051
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+        resources:
+          limits:
+            {{- .Values.forumServer.resourcesLimits | toYaml | nindent 12 -}}

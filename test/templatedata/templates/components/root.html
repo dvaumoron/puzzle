@@ -1,0 +1,84 @@
+{{define "root"}}
+    {{$messages := .Messages}}
+    {{$pageTitle := index .Messages .PageTitle}}
+    <!doctype html>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <title>PuzzleTest - {{$pageTitle}}</title>
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200" rel="stylesheet"/>
+            <link href="/static/css/pico.min.css" type="text/css" rel="stylesheet"/>
+            <link href="/static/css/main.css" type="text/css" rel="stylesheet"/>
+            {{template "header" .}}
+        </head>
+        <body>
+            <nav class="container-fluid">
+                <ul>
+                    <li><a href="/"><img src="/favicon.ico"/></a></li>
+                    <li>{{$pageTitle}}</li>
+                    {{if .LangSelectorUrl}}
+                        <li>
+                            <details role="list">
+                                <summary>{{.Messages.SelectLangLabel}}</summary>
+                                {{$langSelectorUrl := .LangSelectorUrl}}
+                                <ul>
+                                    {{range .AllLang}}
+                                        <li><a href="{{$langSelectorUrl}}&lang={{.}}"><img src="/langPicture/{{.}}" alt="{{.}}"/></a></li>
+                                    {{end}}
+                                </ul>
+                            </details>
+                        </li>
+                    {{end}}
+                </ul>
+                {{if .LoginUrl}}
+                    <ul>
+                        {{if .Login}}
+                            <li>{{.Messages.WelcomeLabel}} {{template "profileLink" .}}</li>
+                            <li><a href="/settings" class="outline" role="button">{{.Messages.PageTitleSettings}}</a></li>
+                            {{if .ViewAdmin}}
+                                <li><a href="/admin" class="outline" role="button">{{.Messages.PageTitleAdmin}}</a></li>
+                            {{end}}
+                            <li><a href="{{.LoginUrl}}" class="secondary" role="button">{{.Messages.LogoutLinkLabel}}</a></li>
+                        {{else}}
+                            <li><a href="{{.LoginUrl}}" class="secondary" role="button">{{.Messages.LoginLinkLabel}}</a></li>
+                        {{end}}
+                    </ul>
+                {{end}}
+            </nav>
+            {{if .SubPages}}
+                <nav class="container-fluid">
+                    <ul>
+                        {{range .SubPages}}
+                            <li><a href="{{.Url}}">{{index $messages .Name}}</a></li>
+                        {{end}}
+                    </ul>
+                </nav>
+            {{end}}
+            {{if .Ariane}}
+                <nav class="container-fluid" aria-label="breadcrumb">
+                    <ul>
+                        <li><a href="/"><span class="material-symbols-outlined">home</span></a></li>
+                        {{range .Ariane}}
+                            <li><a href="{{.Url}}">{{index $messages .Name}}</a></li>
+                        {{end}}
+                    </ul>
+                </nav>
+            {{end}}
+            <div class="container-fluid">
+                {{with .ErrorMsg}}
+                    <h6 class="error">{{index $messages .}}</h6>
+                {{end}}
+                {{template "body" .}}
+            </div>
+            <footer class="container-fluid">
+                Made with <a href="https://github.com/dvaumoron/puzzleweb">PuzzleWeb</a>, <a href="https://picocss.com">Pico.css</a> and <a href="https://htmx.org">htmx</a>
+            </footer>
+            <script src="/static/js/htmx.min.js"></script>
+            <script src="/static/js/wasm_exec.js"></script>
+            <script src="/static/js/wiki_link.js"></script>
+            <script src="/static/js/profile_link.js"></script>
+            <script src="/static/js/main.js"></script>
+        </body>
+    </html>
+{{end}}

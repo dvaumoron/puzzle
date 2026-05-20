@@ -1,0 +1,22 @@
+{{define "header"}}
+    
+{{end}}
+{{define "body"}}
+    <h2>{{.Messages.UserListTitle}} ({{.Total}})</h2>
+
+    <div id="paginationResults">
+        {{template "paginatedList" .}}
+    </div>
+{{end}}
+{{define "paginatedList"}}
+    {{template "search" .}}
+    {{template "paginate" .}}
+
+    {{$viewLinkLabel := .Messages.ViewLinkLabel}}
+    {{range .Users}}
+        <div class="grid">
+            <p>{{template "profileLink" .}}</p>
+            <p><a href="/admin/user/view/{{.Id}}" role="button">{{$viewLinkLabel}}</a></p>
+        </div>
+    {{end}}
+{{end}}

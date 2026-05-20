@@ -1,0 +1,10 @@
+{{define "header"}}
+    
+{{end}}
+{{define "body"}}
+    {{if .ViewedUser}}
+        {{template "profileLink" .ViewedUser}}
+    {{else}}
+        <a href="/notFound">{{index .Messages "ErrorUnknownUser"}}</a>
+    {{end}}
+{{end}}

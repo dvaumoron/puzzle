@@ -1,0 +1,86 @@
+# this file is used to configure permission groups and pages with their widget
+
+pageSize: 3
+feedFormat: "rss"
+
+page404Url: "/notFound"
+
+locales:
+  - lang: "fr-FR"
+    picturePath: "images/Flag_of_France.webp"
+  - lang: "en-US"
+    picturePath: "images/Flag_of_the_United_Kingdom.png"
+
+sessionServiceAddr          : "localhost:50051"
+templateServiceAddr         : "localhost:51251"
+passwordStrengthServiceAddr : "localhost:51151"
+saltServiceAddr             : "localhost:50351"
+loginServiceAddr            : "localhost:50451"
+rightServiceAddr            : "localhost:50251"
+settingsServiceAddr         : "localhost:50551"
+profileServiceAddr          : "localhost:50651"
+forumServiceAddr            : "localhost:50951"
+markdownServiceAddr         : "localhost:50851"
+blogServiceAddr             : "localhost:51051"
+wikiServiceAddr             : "localhost:50751"
+
+permissionGroups:
+  - id: 2
+    name: wikiGroup1
+  - id: 3
+    name: wikiGroup2
+  - id: 4
+    name: blogGroup
+  - id: 5
+    name: forumGroup
+
+
+staticPages:
+  - groupId: 0
+    hidden: true
+    locations: ["notFound"]
+  # page location ending with / denote a folder (will use the index template)
+  - groupId: 0
+    locations: ["about/", "about/faq"]
+
+widgets:
+  - name: wiki1
+    kind: wiki
+    objectId: 1
+    groupId: 2
+  - name: wiki2
+    kind: wiki
+    objectId: 2
+    groupId: 2
+    templates: ["Welcome", "wiki2/view", "wiki2/edit", "wiki2/list"]
+  - name: wiki3
+    kind: wiki
+    objectId: 3
+    groupId: 3
+  - name: blog
+    kind: blog
+    objectId: 4
+    groupId: 4
+  - name: forum
+    kind: forum
+    objectId: 5
+    groupId: 5
+  - name: gallery
+    kind: remote/gallery
+    serviceAddr: localhost:51351
+    objectId: 6
+    groupId: 0
+
+widgetPages:
+  - path: about/wiki
+    widgetRef: wiki1
+  - path: about/faq/wiki2
+    widgetRef: wiki2
+  - path: wiki3
+    widgetRef: wiki3
+  - path: blog
+    widgetRef: blog
+  - path: forum
+    widgetRef: forum
+  - path: gallery
+    widgetRef: gallery

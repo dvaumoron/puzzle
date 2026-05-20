@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: {{ include "puzzle.fullname" . }}-salt
+  labels:
+    {{- include "puzzle.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.saltServer.replicas }}
+  selector:
+    matchLabels:
+      app: puzzlesalt
+  template:
+    metadata:
+      labels:
+        app: puzzlesalt
+        {{- include "puzzle.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: SALT_LENGTH
+          value: "64"
+        - name: REDIS_SERVER_ADDR
+          value: "{{ .Values.externalService.redisAddr }}"
+        - name: REDIS_SERVER_DB
+          value: "2"
+        - name: EXEC_ENV
+          value: {{ .Values.telemetry.envName }}
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+          value: "http://$(HOST_IP):4317"
+        image: puzzlesaltserver:{{ .Values.saltServer.imageVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: puzzlesalt
+        ports:
+        - containerPort: 50051
+          name: grpc-service
+        readinessProbe:
+          failureThreshold: 3
+          grpc:
+            port: 50051
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          successThreshold: 1
+        resources:
+          limits:
+            {{- .Values.saltServer.resourcesLimits | toYaml | nindent 12 -}}
