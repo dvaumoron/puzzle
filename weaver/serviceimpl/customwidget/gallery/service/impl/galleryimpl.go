@@ -20,9 +20,9 @@ package galleryimpl
 import (
 	"context"
 
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	galleryservice "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/gallery/service"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	galleryservice "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/gallery/service"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

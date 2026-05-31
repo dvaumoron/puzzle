@@ -24,10 +24,10 @@ import (
 	"errors"
 	"time"
 
-	loginimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/login"
-	passwordstrengthimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength"
-	saltimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/salt"
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
+	loginimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/login"
+	passwordstrengthimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength"
+	saltimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/salt"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
 	"golang.org/x/crypto/scrypt"
 )
 

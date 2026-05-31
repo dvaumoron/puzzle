@@ -22,8 +22,8 @@ import (
 	"context"
 	"errors"
 
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
-	pb "github.com/dvaumoron/puzzlewikiservice"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	pb "github.com/dvaumoron/puzzle/services/wiki"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -35,25 +35,31 @@ const WikiKey = "puzzleWiki"
 
 const collectionName = "pages"
 
-const wikiIdKey = "wikiId"
-const wikiRefKey = "ref"
-const versionKey = "version"
-const textKey = "text"
-const userIdKey = "userId"
+const (
+	wikiIdKey  = "wikiId"
+	wikiRefKey = "ref"
+	versionKey = "version"
+	textKey    = "text"
+	userIdKey  = "userId"
+)
 
 const mongoCallMsg = "Failed during MongoDB call"
 
 var errInternal = errors.New("internal service error")
 
-var descVersion = bson.D{{Key: versionKey, Value: -1}}
-var contentFields = bson.D{
-	// exclude unused fields
-	{Key: wikiIdKey, Value: false}, {Key: wikiRefKey, Value: false}, {Key: userIdKey, Value: false},
-}
-var optsContentMaxVersion = options.FindOne().SetSort(descVersion).SetProjection(contentFields)
-var optsContentFields = options.FindOne().SetProjection(contentFields)
-var optsVersion = options.Find().SetProjection(
-	bson.D{{Key: versionKey, Value: true}, {Key: userIdKey, Value: true}},
+var (
+	descVersion   = bson.D{{Key: versionKey, Value: -1}}
+	contentFields = bson.D{
+		// exclude unused fields
+		{Key: wikiIdKey, Value: false}, {Key: wikiRefKey, Value: false}, {Key: userIdKey, Value: false},
+	}
+)
+var (
+	optsContentMaxVersion = options.FindOne().SetSort(descVersion).SetProjection(contentFields)
+	optsContentFields     = options.FindOne().SetProjection(contentFields)
+	optsVersion           = options.Find().SetProjection(
+		bson.D{{Key: versionKey, Value: true}, {Key: userIdKey, Value: true}},
+	)
 )
 
 // server is used to implement puzzlewikiservice.WikiServer
@@ -172,7 +178,8 @@ func (s server) Delete(ctx context.Context, request *pb.WikiRequest) (*pb.Respon
 	collection := client.Database(s.databaseName).Collection(collectionName)
 
 	_, err = collection.DeleteMany(ctx, bson.D{
-		{Key: wikiIdKey, Value: request.WikiId}, {Key: wikiRefKey, Value: request.WikiRef},
+		{Key: wikiIdKey, Value: request.WikiId},
+		{Key: wikiRefKey, Value: request.WikiRef},
 		{Key: versionKey, Value: request.Version},
 	})
 	if err != nil {

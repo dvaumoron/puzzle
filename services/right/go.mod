@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlerightservice
+module github.com/dvaumoron/puzzle/services/right
 
 go 1.19
 

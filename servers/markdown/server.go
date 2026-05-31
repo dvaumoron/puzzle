@@ -21,9 +21,9 @@ package main
 import (
 	_ "embed"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	"github.com/dvaumoron/puzzlemarkdownserver/markdownserver"
-	pb "github.com/dvaumoron/puzzlemarkdownservice"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/markdown/markdownserver"
+	pb "github.com/dvaumoron/puzzle/services/markdown"
 )
 
 //go:embed version.txt

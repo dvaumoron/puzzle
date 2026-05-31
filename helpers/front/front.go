@@ -22,7 +22,7 @@ import (
 	"strings"
 	"syscall/js"
 
-	fh "github.com/dvaumoron/puzzlefront/helper"
+	fh "github.com/dvaumoron/puzzle/helpers/front/helper"
 )
 
 const cssHidden = "hide"

@@ -22,8 +22,8 @@ import (
 	"context"
 
 	"github.com/ServiceWeaver/weaver"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	passwordvalidator "github.com/wagslane/go-password-validator"
 )
 

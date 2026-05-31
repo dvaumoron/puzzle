@@ -22,8 +22,8 @@ import (
 	"context"
 	"errors"
 
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
-	pb "github.com/dvaumoron/puzzleprofileservice"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	pb "github.com/dvaumoron/puzzle/services/profile"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -37,19 +37,25 @@ const collectionName = "profiles"
 
 const setOperator = "$set"
 
-const userIdKey = "userId"
-const descKey = "desc"
-const infoKey = "info"
-const pictureKey = "pictureData"
+const (
+	userIdKey  = "userId"
+	descKey    = "desc"
+	infoKey    = "info"
+	pictureKey = "pictureData"
+)
 
 const mongoCallMsg = "Failed during MongoDB call"
 
-var errInternal = errors.New("internal service error")
-var errPictureNotFound = errors.New("picture not found")
+var (
+	errInternal        = errors.New("internal service error")
+	errPictureNotFound = errors.New("picture not found")
+)
 
-var optsCreateUnexisting = options.Update().SetUpsert(true)
-var optsExcludePictureField = options.Find().SetProjection(bson.D{{Key: pictureKey, Value: false}})
-var optsOnlyPictureField = options.FindOne().SetProjection(bson.D{{Key: pictureKey, Value: true}})
+var (
+	optsCreateUnexisting    = options.Update().SetUpsert(true)
+	optsExcludePictureField = options.Find().SetProjection(bson.D{{Key: pictureKey, Value: false}})
+	optsOnlyPictureField    = options.FindOne().SetProjection(bson.D{{Key: pictureKey, Value: true}})
+)
 
 // server is used to implement puzzleprofileservice.ProfileServer
 type server struct {

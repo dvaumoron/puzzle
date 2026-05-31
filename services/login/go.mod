@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzleloginservice
+module github.com/dvaumoron/puzzle/services/login
 
 go 1.19
 

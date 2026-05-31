@@ -22,8 +22,8 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/dvaumoron/puzzleweb/common"
-	widgetservice "github.com/dvaumoron/puzzleweb/remotewidget/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	widgetservice "github.com/dvaumoron/puzzle/web/remotewidget/service"
 	"github.com/gin-gonic/gin"
 )
 

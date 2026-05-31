@@ -22,17 +22,17 @@ import (
 	"net/http"
 	"time"
 
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	blogservice "github.com/dvaumoron/puzzleweb/blog/service"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	forumservice "github.com/dvaumoron/puzzleweb/forum/service"
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
-	markdownservice "github.com/dvaumoron/puzzleweb/markdown/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
-	widgetservice "github.com/dvaumoron/puzzleweb/remotewidget/service"
-	sessionservice "github.com/dvaumoron/puzzleweb/session/service"
-	templateservice "github.com/dvaumoron/puzzleweb/templates/service"
-	wikiservice "github.com/dvaumoron/puzzleweb/wiki/service"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	blogservice "github.com/dvaumoron/puzzle/web/blog/service"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	forumservice "github.com/dvaumoron/puzzle/web/forum/service"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
+	markdownservice "github.com/dvaumoron/puzzle/web/markdown/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
+	widgetservice "github.com/dvaumoron/puzzle/web/remotewidget/service"
+	sessionservice "github.com/dvaumoron/puzzle/web/session/service"
+	templateservice "github.com/dvaumoron/puzzle/web/templates/service"
+	wikiservice "github.com/dvaumoron/puzzle/web/wiki/service"
 )
 
 const (
@@ -41,11 +41,13 @@ const (
 	DefaultFavicon = "/favicon.ico"
 )
 
-type AuthConfig = ServiceConfig[adminservice.AuthService]
-type LoginConfig = ServiceConfig[loginservice.LoginService]
-type SettingsConfig = ServiceConfig[sessionservice.SessionService]
-type TemplateConfig = ServiceConfig[templateservice.TemplateService]
-type RemoteWidgetConfig = ServiceConfig[widgetservice.WidgetService]
+type (
+	AuthConfig         = ServiceConfig[adminservice.AuthService]
+	LoginConfig        = ServiceConfig[loginservice.LoginService]
+	SettingsConfig     = ServiceConfig[sessionservice.SessionService]
+	TemplateConfig     = ServiceConfig[templateservice.TemplateService]
+	RemoteWidgetConfig = ServiceConfig[widgetservice.WidgetService]
+)
 
 type BaseConfig interface {
 	GetLogger() log.Logger

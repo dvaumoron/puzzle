@@ -22,7 +22,7 @@ import (
 	"context"
 	"errors"
 
-	pb "github.com/dvaumoron/puzzlepassstrengthservice"
+	pb "github.com/dvaumoron/puzzle/services/passstrength"
 	passwordvalidator "github.com/wagslane/go-password-validator"
 )
 

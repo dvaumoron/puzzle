@@ -21,8 +21,8 @@ package wikicache
 import (
 	"sync"
 
-	"github.com/dvaumoron/puzzleweb/common/log"
-	wikiservice "github.com/dvaumoron/puzzleweb/wiki/service"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	wikiservice "github.com/dvaumoron/puzzle/web/wiki/service"
 	"go.uber.org/zap"
 )
 

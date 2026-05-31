@@ -23,9 +23,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	"github.com/dvaumoron/puzzleweb/locale"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	"github.com/dvaumoron/puzzle/web/locale"
 	"go.uber.org/zap"
 
 	"github.com/gin-gonic/gin"

@@ -24,12 +24,12 @@ import (
 	"slices"
 	"time"
 
-	adminimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/admin"
-	forumimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/forum"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	forumservice "github.com/dvaumoron/puzzleweb/forum/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	adminimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin"
+	forumimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	forumservice "github.com/dvaumoron/puzzle/web/forum/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 	"go.uber.org/zap"
 )
 

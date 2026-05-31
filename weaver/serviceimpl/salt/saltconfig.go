@@ -21,7 +21,7 @@ package saltimpl
 import (
 	"log/slog"
 
-	redisclient "github.com/dvaumoron/puzzleweaver/client/redis"
+	redisclient "github.com/dvaumoron/puzzle/weaver/client/redis"
 	"github.com/redis/go-redis/v9"
 )
 

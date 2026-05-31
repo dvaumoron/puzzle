@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzleblogservice
+module github.com/dvaumoron/puzzle/services/blog
 
 go 1.19
 

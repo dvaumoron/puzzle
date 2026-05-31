@@ -24,13 +24,13 @@ import (
 	"strings"
 	"time"
 
-	adminimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/admin"
-	wikiimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
-	wikicache "github.com/dvaumoron/puzzleweb/wiki/client/cache"
-	wikiservice "github.com/dvaumoron/puzzleweb/wiki/service"
+	adminimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin"
+	wikiimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
+	wikicache "github.com/dvaumoron/puzzle/web/wiki/client/cache"
+	wikiservice "github.com/dvaumoron/puzzle/web/wiki/service"
 	"go.uber.org/zap"
 )
 

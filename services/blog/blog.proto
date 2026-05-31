@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-option go_package = "github.com/dvaumoron/puzzleblogservice";
+option go_package = "github.com/dvaumoron/puzzle/services/blog";
 option java_multiple_files = true;
 option java_package = "io.dvaumoron.puzzleblogservice";
 option java_outer_classname = "PuzzleBlogServiceProto";

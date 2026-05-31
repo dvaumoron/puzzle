@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService",
 		Iface: reflect.TypeOf((*AdminService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(adminImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return adminService_local_stub{impl: impl.(AdminService), tracer: tracer, authQueryMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "AuthQuery", Remote: false}), editUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "EditUserRoles", Remote: false}), getActionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetActions", Remote: false}), getAllGroupsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetAllGroups", Remote: false}), getUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetUserRoles", Remote: false}), updateRoleMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "UpdateRole", Remote: false}), updateUserMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "UpdateUser", Remote: false}), viewUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "ViewUserRoles", Remote: false})}
+			return adminService_local_stub{impl: impl.(AdminService), tracer: tracer, authQueryMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "AuthQuery", Remote: false}), editUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "EditUserRoles", Remote: false}), getActionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetActions", Remote: false}), getAllGroupsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetAllGroups", Remote: false}), getUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetUserRoles", Remote: false}), updateRoleMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "UpdateRole", Remote: false}), updateUserMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "UpdateUser", Remote: false}), viewUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "ViewUserRoles", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return adminService_client_stub{stub: stub, authQueryMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "AuthQuery", Remote: true}), editUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "EditUserRoles", Remote: true}), getActionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetActions", Remote: true}), getAllGroupsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetAllGroups", Remote: true}), getUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "GetUserRoles", Remote: true}), updateRoleMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "UpdateRole", Remote: true}), updateUserMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "UpdateUser", Remote: true}), viewUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService", Method: "ViewUserRoles", Remote: true})}
+			return adminService_client_stub{stub: stub, authQueryMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "AuthQuery", Remote: true}), editUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "EditUserRoles", Remote: true}), getActionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetActions", Remote: true}), getAllGroupsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetAllGroups", Remote: true}), getUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "GetUserRoles", Remote: true}), updateRoleMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "UpdateRole", Remote: true}), updateUserMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "UpdateUser", Remote: true}), viewUserRolesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService", Method: "ViewUserRoles", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return adminService_server_stub{impl: impl.(AdminService), addLoad: addLoad}
@@ -262,7 +263,6 @@ func (s adminService_client_stub) AuthQuery(ctx context.Context, a0 uint64, a1 u
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -321,7 +321,6 @@ func (s adminService_client_stub) EditUserRoles(ctx context.Context, a0 uint64, 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -380,7 +379,6 @@ func (s adminService_client_stub) GetActions(ctx context.Context, a0 uint64, a1 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -440,7 +438,6 @@ func (s adminService_client_stub) GetAllGroups(ctx context.Context, a0 uint64) (
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -496,7 +493,6 @@ func (s adminService_client_stub) GetUserRoles(ctx context.Context, a0 uint64, a
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -554,7 +550,6 @@ func (s adminService_client_stub) UpdateRole(ctx context.Context, a0 uint64, a1 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.
@@ -607,7 +602,6 @@ func (s adminService_client_stub) UpdateUser(ctx context.Context, a0 uint64, a1 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.
@@ -659,7 +653,6 @@ func (s adminService_client_stub) ViewUserRoles(ctx context.Context, a0 uint64, 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

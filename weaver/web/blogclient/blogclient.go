@@ -24,10 +24,10 @@ import (
 	"slices"
 	"time"
 
-	adminimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/admin"
-	blogimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/blog"
-	blogservice "github.com/dvaumoron/puzzleweb/blog/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	adminimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin"
+	blogimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog"
+	blogservice "github.com/dvaumoron/puzzle/web/blog/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 )
 
 type blogServiceWrapper struct {

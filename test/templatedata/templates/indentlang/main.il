@@ -98,7 +98,7 @@ html
                 h6 @class="error" ([] Messages ErrorMsg)
             Eval WidgetBody
         footer @class="container-fluid"
-            "Made with " (a @href="https://github.com/dvaumoron/puzzleweb" "PuzzleWeb") " and " (a @href="https://picocss.com/" "Pico.css")
+            "Made with " (a @href="https://github.com/dvaumoron/puzzle/web" "PuzzleWeb") " and " (a @href="https://picocss.com/" "Pico.css")
         script @src="/static/js/wasm_exec.js" ""
         script @src="/static/js/wiki_link.js" ""
         script @src="/static/js/main.js" ""

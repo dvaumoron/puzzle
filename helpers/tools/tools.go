@@ -18,7 +18,7 @@
 
 package main
 
-import "github.com/dvaumoron/puzzletools/cmd"
+import "github.com/dvaumoron/puzzle/helpers/tools/cmd"
 
 func main() {
 	cmd.Execute()

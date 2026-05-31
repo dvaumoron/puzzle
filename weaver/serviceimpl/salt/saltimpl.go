@@ -24,13 +24,15 @@ import (
 	"log/slog"
 
 	"github.com/ServiceWeaver/weaver"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"github.com/redis/go-redis/v9"
 )
 
-const redisCallMsg = "Failed during Redis call"
-const generateMsg = "Failed to generate"
+const (
+	redisCallMsg = "Failed during Redis call"
+	generateMsg  = "Failed to generate"
+)
 
 type saltImpl struct {
 	weaver.Implements[SaltService]

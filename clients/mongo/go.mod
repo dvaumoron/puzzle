@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlemongoclient
+module github.com/dvaumoron/puzzle/clients/mongo
 
 go 1.19
 

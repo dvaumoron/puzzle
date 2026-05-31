@@ -3,4 +3,4 @@
 [gRPC](https://grpc.io/) service description to generate and store salt.
 
 Implementation proposals:
-- [puzzlesaltserver](https://github.com/dvaumoron/puzzlesaltserver)
+- [puzzlesaltserver](https://github.com/dvaumoron/puzzle/servers/salt)

@@ -21,10 +21,10 @@ package customwidgetimpl
 import (
 	"log/slog"
 
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	gallerywidget "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/gallery"
-	galleryimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/gallery/service/impl"
-	widgethelper "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/helper"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	gallerywidget "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/gallery"
+	galleryimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/gallery/service/impl"
+	widgethelper "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/helper"
 )
 
 type widgetConf struct {

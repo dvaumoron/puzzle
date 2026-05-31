@@ -22,11 +22,11 @@ import (
 	"context"
 	"encoding/json"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzletemplateservice"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	templateservice "github.com/dvaumoron/puzzleweb/templates/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/template"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	templateservice "github.com/dvaumoron/puzzle/web/templates/service"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 )

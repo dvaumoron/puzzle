@@ -23,9 +23,9 @@ import (
 	"os"
 	"strings"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	"github.com/dvaumoron/puzzlepassstrengthserver/passstrengthserver"
-	pb "github.com/dvaumoron/puzzlepassstrengthservice"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/passstrength/passstrengthserver"
+	pb "github.com/dvaumoron/puzzle/services/passstrength"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"
 )

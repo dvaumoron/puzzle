@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzleredisclient
+module github.com/dvaumoron/puzzle/clients/redis
 
 go 1.19
 

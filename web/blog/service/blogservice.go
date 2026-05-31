@@ -21,7 +21,7 @@ package blogservice
 import (
 	"context"
 
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 )
 
 type BlogPost struct {

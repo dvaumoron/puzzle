@@ -27,7 +27,7 @@ import (
 	"time"
 
 	part "github.com/dvaumoron/partrenderer"
-	pb "github.com/dvaumoron/puzzletemplateservice"
+	pb "github.com/dvaumoron/puzzle/services/template"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"
 )

@@ -21,7 +21,7 @@ package profileservice
 import (
 	"context"
 
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
 )
 
 type UserProfile struct {

@@ -1,22 +1,22 @@
-module github.com/dvaumoron/puzzleweb
+module github.com/dvaumoron/puzzle/web
 
 go 1.21
 
 require (
-	github.com/dvaumoron/puzzleblogservice v1.1.0
-	github.com/dvaumoron/puzzleforumservice v1.4.0
-	github.com/dvaumoron/puzzlegrpcclient v1.1.0
-	github.com/dvaumoron/puzzleloginservice v1.7.0
-	github.com/dvaumoron/puzzlemarkdownservice v1.0.1
-	github.com/dvaumoron/puzzlepassstrengthservice v1.0.0
-	github.com/dvaumoron/puzzleprofileservice v1.2.0
-	github.com/dvaumoron/puzzlerightservice v1.3.0
-	github.com/dvaumoron/puzzlesaltclient v1.2.0
-	github.com/dvaumoron/puzzlesessionservice v1.2.0
-	github.com/dvaumoron/puzzletelemetry v1.1.2
-	github.com/dvaumoron/puzzletemplateservice v1.0.0
-	github.com/dvaumoron/puzzlewidgetservice v1.2.0
-	github.com/dvaumoron/puzzlewikiservice v1.3.0
+	github.com/dvaumoron/puzzle/services/blog v1.1.0
+	github.com/dvaumoron/puzzle/services/forum v1.4.0
+	github.com/dvaumoron/puzzle/clients/grpc v1.1.0
+	github.com/dvaumoron/puzzle/services/login v1.7.0
+	github.com/dvaumoron/puzzle/services/markdown v1.0.1
+	github.com/dvaumoron/puzzle/services/passstrength v1.0.0
+	github.com/dvaumoron/puzzle/services/profile v1.2.0
+	github.com/dvaumoron/puzzle/services/right v1.3.0
+	github.com/dvaumoron/puzzle/clients/salt v1.2.0
+	github.com/dvaumoron/puzzle/services/session v1.2.0
+	github.com/dvaumoron/puzzle/helpers/telemetry v1.1.2
+	github.com/dvaumoron/puzzle/services/template v1.0.0
+	github.com/dvaumoron/puzzle/services/widget v1.2.0
+	github.com/dvaumoron/puzzle/services/wiki v1.3.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gorilla/feeds v1.1.1
 	github.com/hashicorp/hcl/v2 v2.19.1
@@ -40,7 +40,7 @@ require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
-	github.com/dvaumoron/puzzlesaltservice v1.0.1 // indirect
+	github.com/dvaumoron/puzzle/services/salt v1.0.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect

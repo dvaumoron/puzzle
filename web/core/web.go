@@ -24,21 +24,23 @@ import (
 	"net/http"
 	"time"
 
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	"github.com/dvaumoron/puzzleweb/common/config/parser"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	"github.com/dvaumoron/puzzleweb/locale"
-	"github.com/dvaumoron/puzzleweb/templates"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	"github.com/dvaumoron/puzzle/web/common/config/parser"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	"github.com/dvaumoron/puzzle/web/locale"
+	"github.com/dvaumoron/puzzle/web/templates"
 	"github.com/gin-gonic/gin"
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 )
 
-const siteName = "Site"
-const unknownUserKey = "ErrorUnknownUser"
+const (
+	siteName       = "Site"
+	unknownUserKey = "ErrorUnknownUser"
+)
 
 type Site struct {
 	loggerGetter   log.LoggerGetter

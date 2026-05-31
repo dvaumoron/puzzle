@@ -6,23 +6,24 @@ package settingsimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService",
 		Iface: reflect.TypeOf((*SettingsService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(settingsImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return settingsService_local_stub{impl: impl.(SettingsService), tracer: tracer, getMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService", Method: "Get", Remote: false}), updateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService", Method: "Update", Remote: false})}
+			return settingsService_local_stub{impl: impl.(SettingsService), tracer: tracer, getMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService", Method: "Get", Remote: false}), updateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService", Method: "Update", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return settingsService_client_stub{stub: stub, getMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService", Method: "Get", Remote: true}), updateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService", Method: "Update", Remote: true})}
+			return settingsService_client_stub{stub: stub, getMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService", Method: "Get", Remote: true}), updateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService", Method: "Update", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return settingsService_server_stub{impl: impl.(SettingsService), addLoad: addLoad}
@@ -129,7 +130,6 @@ func (s settingsService_client_stub) Get(ctx context.Context, a0 uint64) (r0 map
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -185,7 +185,6 @@ func (s settingsService_client_stub) Update(ctx context.Context, a0 uint64, a1 m
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.

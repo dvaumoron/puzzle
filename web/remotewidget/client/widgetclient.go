@@ -23,11 +23,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	widgetservice "github.com/dvaumoron/puzzleweb/remotewidget/service"
-	pb "github.com/dvaumoron/puzzlewidgetservice"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/widget"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	widgetservice "github.com/dvaumoron/puzzle/web/remotewidget/service"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
@@ -92,7 +92,8 @@ func convertActions(actions []*pb.Action) []widgetservice.Action {
 	res := make([]widgetservice.Action, 0, len(actions))
 	for _, action := range actions {
 		res = append(res, widgetservice.Action{
-			Kind: converKind(action.Kind), Name: action.Name, Path: action.Path, QueryNames: action.QueryNames},
+			Kind: converKind(action.Kind), Name: action.Name, Path: action.Path, QueryNames: action.QueryNames,
+		},
 		)
 	}
 	return res

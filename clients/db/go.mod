@@ -1,6 +1,8 @@
-module github.com/dvaumoron/puzzledbclient
+module github.com/dvaumoron/puzzle/clients/db
 
-go 1.19
+go 1.26
+
+toolchain go1.26.4
 
 require (
 	github.com/glebarez/sqlite v1.8.0

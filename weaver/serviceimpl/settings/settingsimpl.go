@@ -22,9 +22,9 @@ import (
 	"context"
 
 	"github.com/ServiceWeaver/weaver"
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

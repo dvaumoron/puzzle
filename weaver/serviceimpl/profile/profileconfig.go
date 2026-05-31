@@ -19,7 +19,7 @@
 package profileimpl
 
 import (
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 

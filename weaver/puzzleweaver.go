@@ -23,9 +23,9 @@ import (
 	"log"
 
 	"github.com/ServiceWeaver/weaver"
-	"github.com/dvaumoron/puzzleweaver/frame"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	widgethelper "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/helper"
+	"github.com/dvaumoron/puzzle/weaver/frame"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	widgethelper "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/helper"
 )
 
 // can be overridden with ldflags

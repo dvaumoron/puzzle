@@ -19,7 +19,7 @@
 package cmd
 
 import (
-	"github.com/dvaumoron/puzzletools/initlogindb"
+	"github.com/dvaumoron/puzzle/helpers/tools/initlogindb"
 	"github.com/spf13/cobra"
 )
 

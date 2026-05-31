@@ -21,7 +21,7 @@ package cmd
 import (
 	"strconv"
 
-	"github.com/dvaumoron/puzzletools/initrightdb"
+	"github.com/dvaumoron/puzzle/helpers/tools/initrightdb"
 	"github.com/spf13/cobra"
 )
 

@@ -29,7 +29,7 @@ import (
 	"github.com/dvaumoron/indentlang/builtins"
 	"github.com/dvaumoron/indentlang/template"
 	"github.com/dvaumoron/indentlang/types"
-	pb "github.com/dvaumoron/puzzletemplateservice"
+	pb "github.com/dvaumoron/puzzle/services/template"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"
 )

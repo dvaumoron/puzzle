@@ -6,23 +6,24 @@ package saltimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/salt/SaltService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/salt/SaltService",
 		Iface: reflect.TypeOf((*SaltService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(saltImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return saltService_local_stub{impl: impl.(SaltService), tracer: tracer, loadOrGenerateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/salt/SaltService", Method: "LoadOrGenerate", Remote: false})}
+			return saltService_local_stub{impl: impl.(SaltService), tracer: tracer, loadOrGenerateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/salt/SaltService", Method: "LoadOrGenerate", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return saltService_client_stub{stub: stub, loadOrGenerateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/salt/SaltService", Method: "LoadOrGenerate", Remote: true})}
+			return saltService_client_stub{stub: stub, loadOrGenerateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/salt/SaltService", Method: "LoadOrGenerate", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return saltService_server_stub{impl: impl.(SaltService), addLoad: addLoad}
@@ -107,7 +108,6 @@ func (s saltService_client_stub) LoadOrGenerate(ctx context.Context, a0 ...strin
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.

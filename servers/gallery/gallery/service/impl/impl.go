@@ -20,8 +20,8 @@ package impl
 import (
 	"context"
 
-	"github.com/dvaumoron/puzzlegalleryserver/gallery/service"
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	"github.com/dvaumoron/puzzle/servers/gallery/gallery/service"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -32,17 +32,21 @@ const collectionName = "images"
 
 const setOperator = "$set"
 
-const galleryIdKey = "galleryId"
-const imageIdKey = "imageId"
-const userIdKey = "userId"
-const titleKey = "title"
-const descKey = "desc"
-const imageKey = "imageData"
+const (
+	galleryIdKey = "galleryId"
+	imageIdKey   = "imageId"
+	userIdKey    = "userId"
+	titleKey     = "title"
+	descKey      = "desc"
+	imageKey     = "imageData"
+)
 
-var optsCreateUnexisting = options.Update().SetUpsert(true)
-var optsMaxImageId = options.FindOne().SetSort(bson.D{{Key: imageIdKey, Value: -1}}).SetProjection(bson.D{{Key: imageIdKey, Value: true}})
-var optsOnlyImageField = options.FindOne().SetProjection(bson.D{{Key: imageKey, Value: true}})
-var optsOneExcludeImageField = options.FindOne().SetProjection(bson.D{{Key: imageKey, Value: false}})
+var (
+	optsCreateUnexisting     = options.Update().SetUpsert(true)
+	optsMaxImageId           = options.FindOne().SetSort(bson.D{{Key: imageIdKey, Value: -1}}).SetProjection(bson.D{{Key: imageIdKey, Value: true}})
+	optsOnlyImageField       = options.FindOne().SetProjection(bson.D{{Key: imageKey, Value: true}})
+	optsOneExcludeImageField = options.FindOne().SetProjection(bson.D{{Key: imageKey, Value: false}})
+)
 
 type galleryImpl struct {
 	clientOptions *options.ClientOptions

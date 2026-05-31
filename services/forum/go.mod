@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzleforumservice
+module github.com/dvaumoron/puzzle/services/forum
 
 go 1.19
 

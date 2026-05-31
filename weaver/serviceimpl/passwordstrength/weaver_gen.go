@@ -6,23 +6,24 @@ package passwordstrengthimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService",
 		Iface: reflect.TypeOf((*PasswordStrengthService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(strengthImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return passwordStrengthService_local_stub{impl: impl.(PasswordStrengthService), tracer: tracer, getRulesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "GetRules", Remote: false}), validateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "Validate", Remote: false})}
+			return passwordStrengthService_local_stub{impl: impl.(PasswordStrengthService), tracer: tracer, getRulesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "GetRules", Remote: false}), validateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "Validate", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return passwordStrengthService_client_stub{stub: stub, getRulesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "GetRules", Remote: true}), validateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "Validate", Remote: true})}
+			return passwordStrengthService_client_stub{stub: stub, getRulesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "GetRules", Remote: true}), validateMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService", Method: "Validate", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return passwordStrengthService_server_stub{impl: impl.(PasswordStrengthService), addLoad: addLoad}
@@ -129,7 +130,6 @@ func (s passwordStrengthService_client_stub) GetRules(ctx context.Context, a0 st
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -185,7 +185,6 @@ func (s passwordStrengthService_client_stub) Validate(ctx context.Context, a0 st
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

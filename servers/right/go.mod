@@ -1,10 +1,10 @@
-module github.com/dvaumoron/puzzlerightserver
+module github.com/dvaumoron/puzzle/servers/right
 
 go 1.19
 
 require (
-	github.com/dvaumoron/puzzlegrpcserver v1.5.0
-	github.com/dvaumoron/puzzlerightservice v1.3.0
+	github.com/dvaumoron/puzzle/servers/grpc v1.5.0
+	github.com/dvaumoron/puzzle/services/right v1.3.0
 	github.com/jackc/pgx/v5 v5.4.3
 	github.com/open-policy-agent/opa v0.55.0
 	github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.2
@@ -18,7 +18,7 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/dvaumoron/puzzletelemetry v1.1.1 // indirect
+	github.com/dvaumoron/puzzle/helpers/telemetry v1.1.1 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect

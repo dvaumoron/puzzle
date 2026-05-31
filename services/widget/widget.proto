@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-option go_package = "github.com/dvaumoron/puzzlewidgetservice";
+option go_package = "github.com/dvaumoron/puzzle/services/widget";
 option java_multiple_files = true;
 option java_package = "io.dvaumoron.puzzlewidgetservice";
 option java_outer_classname = "PuzzleWidgetServiceProto";

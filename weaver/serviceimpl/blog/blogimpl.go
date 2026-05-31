@@ -23,9 +23,9 @@ import (
 	"strings"
 
 	"github.com/ServiceWeaver/weaver"
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -33,11 +33,13 @@ import (
 
 const collectionName = "posts"
 
-const blogIdKey = "blogId"
-const postIdKey = "postId"
-const userIdKey = "userId"
-const titleKey = "title"
-const textKey = "text"
+const (
+	blogIdKey = "blogId"
+	postIdKey = "postId"
+	userIdKey = "userId"
+	titleKey  = "title"
+	textKey   = "text"
+)
 
 var optsMaxPostId = options.FindOne().SetSort(bson.D{{Key: postIdKey, Value: -1}}).SetProjection(bson.D{{Key: postIdKey, Value: true}})
 

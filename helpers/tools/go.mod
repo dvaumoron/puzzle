@@ -1,12 +1,12 @@
-module github.com/dvaumoron/puzzletools
+module github.com/dvaumoron/puzzle/helpers/tools
 
 go 1.19
 
 require (
-	github.com/dvaumoron/puzzleloginservice v1.7.0
-	github.com/dvaumoron/puzzlemarkdownextension v1.10.0
-	github.com/dvaumoron/puzzlerightservice v1.3.0
-	github.com/dvaumoron/puzzlesaltclient v1.1.2
+	github.com/dvaumoron/puzzle/services/login v1.7.0
+	github.com/dvaumoron/puzzle/helpers/markdownextension v1.10.0
+	github.com/dvaumoron/puzzle/services/right v1.3.0
+	github.com/dvaumoron/puzzle/clients/salt v1.1.2
 	github.com/joho/godotenv v1.5.1
 	github.com/spf13/cobra v1.7.0
 	github.com/wagslane/go-password-validator v0.3.0
@@ -15,8 +15,8 @@ require (
 )
 
 require (
-	github.com/dvaumoron/puzzlegrpcclient v1.0.1 // indirect
-	github.com/dvaumoron/puzzlesaltservice v1.0.1 // indirect
+	github.com/dvaumoron/puzzle/clients/grpc v1.0.1 // indirect
+	github.com/dvaumoron/puzzle/services/salt v1.0.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect

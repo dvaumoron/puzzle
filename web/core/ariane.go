@@ -22,10 +22,10 @@ import (
 	"net/url"
 	"strings"
 
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	"github.com/dvaumoron/puzzleweb/locale"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	"github.com/dvaumoron/puzzle/web/locale"
 	"github.com/gin-gonic/gin"
 )
 

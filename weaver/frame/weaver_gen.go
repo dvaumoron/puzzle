@@ -5,10 +5,11 @@ package frame
 
 import (
 	"context"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
@@ -27,7 +28,7 @@ func init() {
 		ReflectStubFn: func(caller func(string, context.Context, []any, []any) error) any {
 			return main_reflect_stub{caller: caller}
 		},
-		RefData: "⟦d6ea4f48:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/session/SessionService⟧\n⟦34f14587:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/templates/TemplateService⟧\n⟦458b7edc:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/settings/SettingsService⟧\n⟦75f36410:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/passwordstrength/PasswordStrengthService⟧\n⟦6ed7ff7a:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/salt/SaltService⟧\n⟦adaa034b:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService⟧\n⟦71ebb528:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/admin/AdminService⟧\n⟦30df24d9:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService⟧\n⟦0fe201ed:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService⟧\n⟦9923c495:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/markdown/MarkdownService⟧\n⟦b86b4e76:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService⟧\n⟦ec5eb140:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService⟧\n⟦9d57dd51:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService⟧\n⟦17a5cb3b:wEaVeRlIsTeNeRs:github.com/ServiceWeaver/weaver/Main→web⟧\n",
+		RefData: "⟦d6ea4f48:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/session/SessionService⟧\n⟦34f14587:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/templates/TemplateService⟧\n⟦458b7edc:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/settings/SettingsService⟧\n⟦75f36410:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/passwordstrength/PasswordStrengthService⟧\n⟦6ed7ff7a:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/salt/SaltService⟧\n⟦adaa034b:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService⟧\n⟦71ebb528:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/admin/AdminService⟧\n⟦30df24d9:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService⟧\n⟦0fe201ed:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService⟧\n⟦9923c495:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/markdown/MarkdownService⟧\n⟦b86b4e76:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService⟧\n⟦ec5eb140:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService⟧\n⟦9d57dd51:wEaVeReDgE:github.com/ServiceWeaver/weaver/Main→github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService⟧\n⟦17a5cb3b:wEaVeRlIsTeNeRs:github.com/ServiceWeaver/weaver/Main→web⟧\n",
 	})
 }
 
@@ -105,4 +106,3 @@ type main_reflect_stub struct {
 
 // Check that main_reflect_stub implements the weaver.Main interface.
 var _ weaver.Main = (*main_reflect_stub)(nil)
-

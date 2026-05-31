@@ -23,8 +23,8 @@ import (
 	"errors"
 	"strings"
 
-	markdownextension "github.com/dvaumoron/puzzlemarkdownextension"
-	pb "github.com/dvaumoron/puzzlemarkdownservice"
+	markdownextension "github.com/dvaumoron/puzzle/helpers/markdownextension"
+	pb "github.com/dvaumoron/puzzle/services/markdown"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"github.com/yuin/goldmark"
 	"go.uber.org/zap"

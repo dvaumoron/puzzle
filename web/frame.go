@@ -23,10 +23,10 @@ import (
 	_ "embed"
 	"os"
 
-	"github.com/dvaumoron/puzzleweb/common/build"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	globalconfig "github.com/dvaumoron/puzzleweb/common/config/global"
-	"github.com/dvaumoron/puzzleweb/common/config/parser"
+	"github.com/dvaumoron/puzzle/web/common/build"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	globalconfig "github.com/dvaumoron/puzzle/web/common/config/global"
+	"github.com/dvaumoron/puzzle/web/common/config/parser"
 	"go.uber.org/zap"
 )
 

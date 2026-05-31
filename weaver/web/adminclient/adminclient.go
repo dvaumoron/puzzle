@@ -21,9 +21,9 @@ package adminclient
 import (
 	"context"
 
-	adminimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/admin"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
+	adminimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
 )
 
 type adminServiceWrapper struct {

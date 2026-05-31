@@ -22,7 +22,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/dvaumoron/puzzleweb/common/log"
+	"github.com/dvaumoron/puzzle/web/common/log"
 	"go.uber.org/zap"
 )
 

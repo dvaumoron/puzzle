@@ -22,10 +22,10 @@ import (
 	"context"
 	"encoding/json"
 
-	templatesimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/templates"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	templateservice "github.com/dvaumoron/puzzleweb/templates/service"
+	templatesimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/templates"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	templateservice "github.com/dvaumoron/puzzle/web/templates/service"
 	"go.uber.org/zap"
 )
 

@@ -21,14 +21,14 @@ package profileclient
 import (
 	"context"
 
-	adminimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/admin"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	profileimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/profile"
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	adminimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/admin"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	profileimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 )
 
 type profileServiceWrapper struct {

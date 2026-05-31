@@ -25,10 +25,10 @@ import (
 	"strings"
 	"time"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	redisclient "github.com/dvaumoron/puzzleredisclient"
-	"github.com/dvaumoron/puzzlesessionserver/sessionserver"
-	pb "github.com/dvaumoron/puzzlesessionservice"
+	redisclient "github.com/dvaumoron/puzzle/clients/redis"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/session/sessionserver"
+	pb "github.com/dvaumoron/puzzle/services/session"
 )
 
 //go:embed version.txt

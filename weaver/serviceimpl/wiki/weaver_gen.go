@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService",
 		Iface: reflect.TypeOf((*RemoteWikiService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(remoteWikiImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return remoteWikiService_local_stub{impl: impl.(RemoteWikiService), tracer: tracer, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Delete", Remote: false}), getVersionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "GetVersions", Remote: false}), loadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Load", Remote: false}), storeMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Store", Remote: false})}
+			return remoteWikiService_local_stub{impl: impl.(RemoteWikiService), tracer: tracer, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Delete", Remote: false}), getVersionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "GetVersions", Remote: false}), loadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Load", Remote: false}), storeMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Store", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return remoteWikiService_client_stub{stub: stub, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Delete", Remote: true}), getVersionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "GetVersions", Remote: true}), loadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Load", Remote: true}), storeMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/wiki/RemoteWikiService", Method: "Store", Remote: true})}
+			return remoteWikiService_client_stub{stub: stub, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Delete", Remote: true}), getVersionsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "GetVersions", Remote: true}), loadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Load", Remote: true}), storeMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/wiki/RemoteWikiService", Method: "Store", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return remoteWikiService_server_stub{impl: impl.(RemoteWikiService), addLoad: addLoad}
@@ -174,7 +175,6 @@ func (s remoteWikiService_client_stub) Delete(ctx context.Context, a0 uint64, a1
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -233,7 +233,6 @@ func (s remoteWikiService_client_stub) GetVersions(ctx context.Context, a0 uint6
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -291,7 +290,6 @@ func (s remoteWikiService_client_stub) Load(ctx context.Context, a0 uint64, a1 s
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -351,7 +349,6 @@ func (s remoteWikiService_client_stub) Store(ctx context.Context, a0 uint64, a1 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

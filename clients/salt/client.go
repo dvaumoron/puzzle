@@ -22,8 +22,8 @@ import (
 	"context"
 	"encoding/base64"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlesaltservice"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/salt"
 	"golang.org/x/crypto/scrypt"
 	"google.golang.org/grpc"
 )

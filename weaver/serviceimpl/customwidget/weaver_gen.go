@@ -6,24 +6,25 @@ package customwidgetimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
-	"github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/service"
+	customwidgetservice "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/service"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService",
 		Iface: reflect.TypeOf((*CustomWidgetService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(remoteWidgetImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return customWidgetService_local_stub{impl: impl.(CustomWidgetService), tracer: tracer, getDescMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService", Method: "GetDesc", Remote: false}), processMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService", Method: "Process", Remote: false})}
+			return customWidgetService_local_stub{impl: impl.(CustomWidgetService), tracer: tracer, getDescMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService", Method: "GetDesc", Remote: false}), processMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService", Method: "Process", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return customWidgetService_client_stub{stub: stub, getDescMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService", Method: "GetDesc", Remote: true}), processMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/CustomWidgetService", Method: "Process", Remote: true})}
+			return customWidgetService_client_stub{stub: stub, getDescMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService", Method: "GetDesc", Remote: true}), processMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/CustomWidgetService", Method: "Process", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return customWidgetService_server_stub{impl: impl.(CustomWidgetService), addLoad: addLoad}
@@ -130,7 +131,6 @@ func (s customWidgetService_client_stub) GetDesc(ctx context.Context, a0 string)
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -186,7 +186,6 @@ func (s customWidgetService_client_stub) Process(ctx context.Context, a0 string,
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.

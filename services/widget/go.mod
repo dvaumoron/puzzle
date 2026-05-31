@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlewidgetservice
+module github.com/dvaumoron/puzzle/services/widget
 
 go 1.20
 

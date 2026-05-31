@@ -23,8 +23,8 @@ import (
 	"errors"
 	"strings"
 
-	pb "github.com/dvaumoron/puzzleblogservice"
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	pb "github.com/dvaumoron/puzzle/services/blog"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -36,16 +36,20 @@ const BlogKey = "puzzleBlog"
 
 const collectionName = "posts"
 
-const blogIdKey = "blogId"
-const postIdKey = "postId"
-const userIdKey = "userId"
-const titleKey = "title"
-const textKey = "text"
+const (
+	blogIdKey = "blogId"
+	postIdKey = "postId"
+	userIdKey = "userId"
+	titleKey  = "title"
+	textKey   = "text"
+)
 
 const mongoCallMsg = "Failed during MongoDB call"
 
-var errInternal = errors.New("internal service error")
-var errNoPost = errors.New("no blog post with requested ids")
+var (
+	errInternal = errors.New("internal service error")
+	errNoPost   = errors.New("no blog post with requested ids")
+)
 
 var optsMaxPostId = options.FindOne().SetSort(bson.D{{Key: postIdKey, Value: -1}}).SetProjection(bson.D{{Key: postIdKey, Value: true}})
 

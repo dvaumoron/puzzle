@@ -21,7 +21,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/dvaumoron/puzzletools/preparetemplates"
+	"github.com/dvaumoron/puzzle/helpers/tools/preparetemplates"
 	"github.com/spf13/cobra"
 )
 

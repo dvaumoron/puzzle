@@ -21,9 +21,9 @@ package strengthclient
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlepassstrengthservice"
-	strengthservice "github.com/dvaumoron/puzzleweb/passwordstrength/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/passstrength"
+	strengthservice "github.com/dvaumoron/puzzle/web/passwordstrength/service"
 	"google.golang.org/grpc"
 )
 

@@ -21,10 +21,10 @@ package main
 import (
 	_ "embed"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
-	pb "github.com/dvaumoron/puzzlesessionservice"
-	"github.com/dvaumoron/puzzlesettingsserver/settingsserver"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/settings/settingsserver"
+	pb "github.com/dvaumoron/puzzle/services/session"
 )
 
 //go:embed version.txt

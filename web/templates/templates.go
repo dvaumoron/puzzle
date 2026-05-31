@@ -22,8 +22,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/dvaumoron/puzzleweb/common/config"
-	templateservice "github.com/dvaumoron/puzzleweb/templates/service"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	templateservice "github.com/dvaumoron/puzzle/web/templates/service"
 	"github.com/gin-gonic/gin/render"
 )
 

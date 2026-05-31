@@ -21,11 +21,11 @@ package adminclient
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlerightservice"
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/right"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
 	"google.golang.org/grpc"
 )
 

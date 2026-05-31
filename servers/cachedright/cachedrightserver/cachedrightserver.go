@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	pb "github.com/dvaumoron/puzzlerightservice"
+	pb "github.com/dvaumoron/puzzle/services/right"
 	"github.com/redis/go-redis/v9"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.opentelemetry.io/otel/trace"

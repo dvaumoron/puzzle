@@ -24,9 +24,9 @@ import (
 	"sync"
 
 	"github.com/ServiceWeaver/weaver"
-	"github.com/dvaumoron/puzzlerightserver/model"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	"github.com/dvaumoron/puzzle/servers/right/model"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"github.com/open-policy-agent/opa/rego"
 	"gorm.io/gorm"
 )

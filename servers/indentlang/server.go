@@ -23,10 +23,10 @@ import (
 	"os"
 	"strings"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	"github.com/dvaumoron/puzzleindentlangserver/templateserver"
-	locale "github.com/dvaumoron/puzzlelocaleloader"
-	pb "github.com/dvaumoron/puzzletemplateservice"
+	locale "github.com/dvaumoron/puzzle/helpers/localeloader"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/indentlang/templateserver"
+	pb "github.com/dvaumoron/puzzle/services/template"
 	"go.uber.org/zap"
 )
 

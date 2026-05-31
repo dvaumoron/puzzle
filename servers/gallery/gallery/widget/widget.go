@@ -22,9 +22,9 @@ import (
 	"context"
 	"encoding/json"
 
-	galleryservice "github.com/dvaumoron/puzzlegalleryserver/gallery/service"
-	ws "github.com/dvaumoron/puzzlewidgetserver"
-	pb "github.com/dvaumoron/puzzlewidgetservice"
+	galleryservice "github.com/dvaumoron/puzzle/servers/gallery/gallery/service"
+	ws "github.com/dvaumoron/puzzle/servers/widget"
+	pb "github.com/dvaumoron/puzzle/services/widget"
 )
 
 const (

@@ -25,8 +25,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

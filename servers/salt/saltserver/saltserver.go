@@ -23,7 +23,7 @@ import (
 	"crypto/rand"
 	"errors"
 
-	pb "github.com/dvaumoron/puzzlesaltservice"
+	pb "github.com/dvaumoron/puzzle/services/salt"
 	"github.com/redis/go-redis/v9"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"

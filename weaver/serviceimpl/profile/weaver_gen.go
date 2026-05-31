@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService",
 		Iface: reflect.TypeOf((*RemoteProfileService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(remoteProfileImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return remoteProfileService_local_stub{impl: impl.(RemoteProfileService), tracer: tracer, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "Delete", Remote: false}), getPictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "GetPicture", Remote: false}), getProfilesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "GetProfiles", Remote: false}), updatePictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "UpdatePicture", Remote: false}), updateProfileMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "UpdateProfile", Remote: false})}
+			return remoteProfileService_local_stub{impl: impl.(RemoteProfileService), tracer: tracer, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "Delete", Remote: false}), getPictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "GetPicture", Remote: false}), getProfilesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "GetProfiles", Remote: false}), updatePictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "UpdatePicture", Remote: false}), updateProfileMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "UpdateProfile", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return remoteProfileService_client_stub{stub: stub, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "Delete", Remote: true}), getPictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "GetPicture", Remote: true}), getProfilesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "GetProfiles", Remote: true}), updatePictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "UpdatePicture", Remote: true}), updateProfileMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/profile/RemoteProfileService", Method: "UpdateProfile", Remote: true})}
+			return remoteProfileService_client_stub{stub: stub, deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "Delete", Remote: true}), getPictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "GetPicture", Remote: true}), getProfilesMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "GetProfiles", Remote: true}), updatePictureMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "UpdatePicture", Remote: true}), updateProfileMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/profile/RemoteProfileService", Method: "UpdateProfile", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return remoteProfileService_server_stub{impl: impl.(RemoteProfileService), addLoad: addLoad}
@@ -196,7 +197,6 @@ func (s remoteProfileService_client_stub) Delete(ctx context.Context, a0 uint64)
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -251,7 +251,6 @@ func (s remoteProfileService_client_stub) GetPicture(ctx context.Context, a0 uin
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -307,7 +306,6 @@ func (s remoteProfileService_client_stub) GetProfiles(ctx context.Context, a0 []
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -363,7 +361,6 @@ func (s remoteProfileService_client_stub) UpdatePicture(ctx context.Context, a0 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -420,7 +417,6 @@ func (s remoteProfileService_client_stub) UpdateProfile(ctx context.Context, a0 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Encode arguments.

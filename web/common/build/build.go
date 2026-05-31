@@ -4,14 +4,14 @@ import (
 	"context"
 	"strings"
 
-	"github.com/dvaumoron/puzzleweb/blog"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	"github.com/dvaumoron/puzzleweb/common/config/parser"
-	puzzleweb "github.com/dvaumoron/puzzleweb/core"
-	"github.com/dvaumoron/puzzleweb/forum"
-	"github.com/dvaumoron/puzzleweb/locale"
-	"github.com/dvaumoron/puzzleweb/remotewidget"
-	"github.com/dvaumoron/puzzleweb/wiki"
+	"github.com/dvaumoron/puzzle/web/blog"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	"github.com/dvaumoron/puzzle/web/common/config/parser"
+	puzzleweb "github.com/dvaumoron/puzzle/web/core"
+	"github.com/dvaumoron/puzzle/web/forum"
+	"github.com/dvaumoron/puzzle/web/locale"
+	"github.com/dvaumoron/puzzle/web/remotewidget"
+	"github.com/dvaumoron/puzzle/web/wiki"
 	"go.uber.org/zap"
 )
 

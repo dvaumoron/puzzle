@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService",
 		Iface: reflect.TypeOf((*RemoteBlogService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(remoteBlogImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return remoteBlogService_local_stub{impl: impl.(RemoteBlogService), tracer: tracer, createPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "CreatePost", Remote: false}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "Delete", Remote: false}), getPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "GetPost", Remote: false}), getPostsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "GetPosts", Remote: false})}
+			return remoteBlogService_local_stub{impl: impl.(RemoteBlogService), tracer: tracer, createPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "CreatePost", Remote: false}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "Delete", Remote: false}), getPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "GetPost", Remote: false}), getPostsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "GetPosts", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return remoteBlogService_client_stub{stub: stub, createPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "CreatePost", Remote: true}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "Delete", Remote: true}), getPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "GetPost", Remote: true}), getPostsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/blog/RemoteBlogService", Method: "GetPosts", Remote: true})}
+			return remoteBlogService_client_stub{stub: stub, createPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "CreatePost", Remote: true}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "Delete", Remote: true}), getPostMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "GetPost", Remote: true}), getPostsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/blog/RemoteBlogService", Method: "GetPosts", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return remoteBlogService_server_stub{impl: impl.(RemoteBlogService), addLoad: addLoad}
@@ -174,7 +175,6 @@ func (s remoteBlogService_client_stub) CreatePost(ctx context.Context, a0 uint64
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -236,7 +236,6 @@ func (s remoteBlogService_client_stub) Delete(ctx context.Context, a0 uint64, a1
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -293,7 +292,6 @@ func (s remoteBlogService_client_stub) GetPost(ctx context.Context, a0 uint64, a
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -351,7 +349,6 @@ func (s remoteBlogService_client_stub) GetPosts(ctx context.Context, a0 uint64, 
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

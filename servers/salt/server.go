@@ -23,10 +23,10 @@ import (
 	"os"
 	"strconv"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	redisclient "github.com/dvaumoron/puzzleredisclient"
-	"github.com/dvaumoron/puzzlesaltserver/saltserver"
-	pb "github.com/dvaumoron/puzzlesaltservice"
+	redisclient "github.com/dvaumoron/puzzle/clients/redis"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/salt/saltserver"
+	pb "github.com/dvaumoron/puzzle/services/salt"
 )
 
 //go:embed version.txt

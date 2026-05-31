@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlesaltservice
+module github.com/dvaumoron/puzzle/services/salt
 
 go 1.19
 

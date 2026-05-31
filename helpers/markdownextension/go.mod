@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlemarkdownextension
+module github.com/dvaumoron/puzzle/helpers/markdownextension
 
 go 1.20
 

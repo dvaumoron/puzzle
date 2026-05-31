@@ -25,25 +25,31 @@ import (
 	"strings"
 	"time"
 
-	blogservice "github.com/dvaumoron/puzzleweb/blog/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	puzzleweb "github.com/dvaumoron/puzzleweb/core"
+	blogservice "github.com/dvaumoron/puzzle/web/blog/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	puzzleweb "github.com/dvaumoron/puzzle/web/core"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/feeds"
 	"go.uber.org/zap"
 )
 
-const emptyTitle = "EmptyPostTitle"
-const emptyContent = "EmptyPostContent"
+const (
+	emptyTitle   = "EmptyPostTitle"
+	emptyContent = "EmptyPostContent"
+)
 
-const postIdName = "postId"
-const commentMsgName = "CommentMsg"
+const (
+	postIdName     = "postId"
+	commentMsgName = "CommentMsg"
+)
 
 const parsingPostIdErrorMsg = "Failed to parse postId"
 
-var errEmptyComment = errors.New("EmptyComment")
-var errFeedFormat = errors.New("unrecognized feed format")
+var (
+	errEmptyComment = errors.New("EmptyComment")
+	errFeedFormat   = errors.New("unrecognized feed format")
+)
 
 // TODO draft with modify until publish ?
 // TODO use forum service for blog storage ?

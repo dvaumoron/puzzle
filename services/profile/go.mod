@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzleprofileservice
+module github.com/dvaumoron/puzzle/services/profile
 
 go 1.19
 

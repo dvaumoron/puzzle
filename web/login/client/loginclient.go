@@ -24,11 +24,11 @@ import (
 	"sort"
 	"time"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzleloginservice"
-	"github.com/dvaumoron/puzzleweb/common"
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
-	strengthservice "github.com/dvaumoron/puzzleweb/passwordstrength/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/login"
+	"github.com/dvaumoron/puzzle/web/common"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
+	strengthservice "github.com/dvaumoron/puzzle/web/passwordstrength/service"
 	"google.golang.org/grpc"
 )
 

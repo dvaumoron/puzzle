@@ -1,12 +1,12 @@
-module github.com/dvaumoron/puzzlecachedrightserver
+module github.com/dvaumoron/puzzle/servers/cachedright
 
 go 1.19
 
 require (
-	github.com/dvaumoron/puzzlegrpcclient v1.0.1
-	github.com/dvaumoron/puzzlegrpcserver v1.4.1
-	github.com/dvaumoron/puzzleredisclient v1.2.0
-	github.com/dvaumoron/puzzlerightservice v1.3.0
+	github.com/dvaumoron/puzzle/clients/grpc v1.0.1
+	github.com/dvaumoron/puzzle/servers/grpc v1.4.1
+	github.com/dvaumoron/puzzle/clients/redis v1.2.0
+	github.com/dvaumoron/puzzle/services/right v1.3.0
 	github.com/redis/go-redis/v9 v9.0.4
 	github.com/uptrace/opentelemetry-go-extra/otelzap v0.2.0
 	go.opentelemetry.io/otel/trace v1.15.1
@@ -19,7 +19,7 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/dvaumoron/puzzletelemetry v1.1.1 // indirect
+	github.com/dvaumoron/puzzle/helpers/telemetry v1.1.1 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect

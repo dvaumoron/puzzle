@@ -23,10 +23,10 @@ import (
 	"os"
 	"strconv"
 
-	galleryimpl "github.com/dvaumoron/puzzlegalleryserver/gallery/service/impl"
-	gw "github.com/dvaumoron/puzzlegalleryserver/gallery/widget"
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
-	widgetserver "github.com/dvaumoron/puzzlewidgetserver"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	galleryimpl "github.com/dvaumoron/puzzle/servers/gallery/gallery/service/impl"
+	gw "github.com/dvaumoron/puzzle/servers/gallery/gallery/widget"
+	widgetserver "github.com/dvaumoron/puzzle/servers/widget"
 )
 
 //go:embed version.txt

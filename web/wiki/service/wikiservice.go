@@ -22,8 +22,8 @@ import (
 	"context"
 	"sync"
 
-	markdownservice "github.com/dvaumoron/puzzleweb/markdown/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	markdownservice "github.com/dvaumoron/puzzle/web/markdown/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 )
 
 type WikiContent struct {

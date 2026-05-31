@@ -21,9 +21,9 @@ package locale
 import (
 	"unicode"
 
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	"github.com/dvaumoron/puzzleweb/common/log"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	"github.com/dvaumoron/puzzle/web/common/log"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"golang.org/x/text/language"

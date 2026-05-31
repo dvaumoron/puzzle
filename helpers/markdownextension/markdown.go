@@ -19,8 +19,8 @@
 package puzzlemarkdownextension
 
 import (
-	"github.com/dvaumoron/puzzlemarkdownextension/profilelink"
-	"github.com/dvaumoron/puzzlemarkdownextension/wikilink"
+	"github.com/dvaumoron/puzzle/helpers/markdownextension/profilelink"
+	"github.com/dvaumoron/puzzle/helpers/markdownextension/wikilink"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/renderer/html"

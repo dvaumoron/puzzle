@@ -19,8 +19,8 @@
 package loginimpl
 
 import (
-	"github.com/dvaumoron/puzzleloginserver/model"
-	dbclient "github.com/dvaumoron/puzzleweaver/client/db"
+	"github.com/dvaumoron/puzzle/servers/login/model"
+	dbclient "github.com/dvaumoron/puzzle/weaver/client/db"
 	"gorm.io/gorm"
 )
 

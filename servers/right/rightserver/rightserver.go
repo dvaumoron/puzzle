@@ -24,8 +24,8 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/dvaumoron/puzzlerightserver/model"
-	pb "github.com/dvaumoron/puzzlerightservice"
+	"github.com/dvaumoron/puzzle/servers/right/model"
+	pb "github.com/dvaumoron/puzzle/services/right"
 	_ "github.com/jackc/pgx/v5"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"

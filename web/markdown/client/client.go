@@ -21,9 +21,9 @@ package client
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlemarkdownservice"
-	"github.com/dvaumoron/puzzleweb/markdown/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/markdown"
+	"github.com/dvaumoron/puzzle/web/markdown/service"
 	"google.golang.org/grpc"
 )
 

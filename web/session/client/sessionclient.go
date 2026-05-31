@@ -21,10 +21,10 @@ package sessionclient
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlesessionservice"
-	"github.com/dvaumoron/puzzleweb/common"
-	sessionservice "github.com/dvaumoron/puzzleweb/session/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/session"
+	"github.com/dvaumoron/puzzle/web/common"
+	sessionservice "github.com/dvaumoron/puzzle/web/session/service"
 	"google.golang.org/grpc"
 )
 

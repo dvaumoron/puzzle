@@ -22,9 +22,9 @@ import (
 	"context"
 
 	"github.com/ServiceWeaver/weaver"
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -34,14 +34,18 @@ const collectionName = "profiles"
 
 const setOperator = "$set"
 
-const userIdKey = "userId"
-const descKey = "desc"
-const infoKey = "info"
-const pictureKey = "pictureData"
+const (
+	userIdKey  = "userId"
+	descKey    = "desc"
+	infoKey    = "info"
+	pictureKey = "pictureData"
+)
 
-var optsCreateUnexisting = options.Update().SetUpsert(true)
-var optsExcludePictureField = options.Find().SetProjection(bson.D{{Key: pictureKey, Value: false}})
-var optsOnlyPictureField = options.FindOne().SetProjection(bson.D{{Key: pictureKey, Value: true}})
+var (
+	optsCreateUnexisting    = options.Update().SetUpsert(true)
+	optsExcludePictureField = options.Find().SetProjection(bson.D{{Key: pictureKey, Value: false}})
+	optsOnlyPictureField    = options.FindOne().SetProjection(bson.D{{Key: pictureKey, Value: true}})
+)
 
 type remoteProfileImpl struct {
 	weaver.Implements[RemoteProfileService]

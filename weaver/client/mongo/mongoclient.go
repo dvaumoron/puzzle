@@ -23,7 +23,7 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/dvaumoron/puzzleweb/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

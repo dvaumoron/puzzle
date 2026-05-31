@@ -6,23 +6,24 @@ package templatesimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/templates/TemplateService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/templates/TemplateService",
 		Iface: reflect.TypeOf((*TemplateService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(templateImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return templateService_local_stub{impl: impl.(TemplateService), tracer: tracer, renderMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/templates/TemplateService", Method: "Render", Remote: false})}
+			return templateService_local_stub{impl: impl.(TemplateService), tracer: tracer, renderMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/templates/TemplateService", Method: "Render", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return templateService_client_stub{stub: stub, renderMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/templates/TemplateService", Method: "Render", Remote: true})}
+			return templateService_client_stub{stub: stub, renderMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/templates/TemplateService", Method: "Render", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return templateService_server_stub{impl: impl.(TemplateService), addLoad: addLoad}
@@ -107,7 +108,6 @@ func (s templateService_client_stub) Render(ctx context.Context, a0 string, a1 [
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

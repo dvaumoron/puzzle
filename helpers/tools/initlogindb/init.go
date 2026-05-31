@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"time"
 
-	pb "github.com/dvaumoron/puzzleloginservice"
-	saltclient "github.com/dvaumoron/puzzlesaltclient"
+	saltclient "github.com/dvaumoron/puzzle/clients/salt"
+	pb "github.com/dvaumoron/puzzle/services/login"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

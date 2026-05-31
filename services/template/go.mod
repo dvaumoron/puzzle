@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzletemplateservice
+module github.com/dvaumoron/puzzle/services/template
 
 go 1.20
 

@@ -23,10 +23,10 @@ import (
 	"slices"
 	"strings"
 
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	"github.com/dvaumoron/puzzleweb/locale"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	"github.com/dvaumoron/puzzle/web/locale"
 	"github.com/gin-gonic/gin"
 )
 

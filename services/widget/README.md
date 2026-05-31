@@ -3,6 +3,6 @@
 [gRPC](https://grpc.io/) service description to process widget.
 
 Implementation proposals:
-- [puzzlegalleryserver](https://github.com/dvaumoron/puzzlegalleryserver)
+- [puzzlegalleryserver](https://github.com/dvaumoron/puzzle/servers/gallery)
 
-There is a helper to easily do your own widget: [puzzlewidgetserver](https://github.com/dvaumoron/puzzlewidgetserver)
+There is a helper to easily do your own widget: [puzzlewidgetserver](https://github.com/dvaumoron/puzzle/servers/widget)

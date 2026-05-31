@@ -21,7 +21,7 @@ package sessionimpl
 import (
 	"context"
 
-	settingsimpl "github.com/dvaumoron/puzzleweaver/serviceimpl/settings"
+	settingsimpl "github.com/dvaumoron/puzzle/weaver/serviceimpl/settings"
 )
 
 type SessionService interface {

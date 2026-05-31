@@ -17,7 +17,7 @@
 
 package remotewidgethelper
 
-import servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
+import servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
 
 var Registerers []Registerer
 

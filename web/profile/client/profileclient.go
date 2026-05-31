@@ -21,13 +21,13 @@ package profileclient
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzleprofileservice"
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/log"
-	loginservice "github.com/dvaumoron/puzzleweb/login/service"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/profile"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/log"
+	loginservice "github.com/dvaumoron/puzzle/web/login/service"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 	"google.golang.org/grpc"
 )
 

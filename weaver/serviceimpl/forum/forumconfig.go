@@ -21,8 +21,8 @@ package forumimpl
 import (
 	"context"
 
-	"github.com/dvaumoron/puzzleforumserver/model"
-	dbclient "github.com/dvaumoron/puzzleweaver/client/db"
+	"github.com/dvaumoron/puzzle/servers/forum/model"
+	dbclient "github.com/dvaumoron/puzzle/weaver/client/db"
 	"gorm.io/gorm"
 )
 

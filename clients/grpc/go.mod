@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlegrpcclient
+module github.com/dvaumoron/puzzle/clients/grpc
 
 go 1.20
 

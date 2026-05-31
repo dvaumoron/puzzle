@@ -25,8 +25,8 @@ import (
 	"time"
 
 	part "github.com/dvaumoron/partrenderer"
-	fsclient "github.com/dvaumoron/puzzleweaver/client/fs"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
+	fsclient "github.com/dvaumoron/puzzle/weaver/client/fs"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
 	"github.com/spf13/afero"
 )
 

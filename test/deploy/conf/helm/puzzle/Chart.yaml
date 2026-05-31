@@ -6,22 +6,22 @@ type: application
 version: 0.1.3
 appVersion: "latest"
 sources:
-  - github.com/dvaumoron/puzzleweb
-  - github.com/dvaumoron/puzzletest
-  - github.com/dvaumoron/puzzlesessionserver
-  - github.com/dvaumoron/puzzlesaltserver
-  - github.com/dvaumoron/puzzleloginserver
-  - github.com/dvaumoron/puzzlerightserver
-  - github.com/dvaumoron/puzzlecachedrightserver
-  - github.com/dvaumoron/puzzlesettingsserver
-  - github.com/dvaumoron/puzzleprofileserver
-  - github.com/dvaumoron/puzzlemarkdownserver
-  - github.com/dvaumoron/puzzleblogserver
-  - github.com/dvaumoron/puzzlewikiserver
-  - github.com/dvaumoron/puzzleforumserver
-  - github.com/dvaumoron/puzzlepassstrengthserver
-  - github.com/dvaumoron/puzzlegalleryserver
-  - github.com/dvaumoron/puzzlegotemplateserver
+  - github.com/dvaumoron/puzzle/web
+  - github.com/dvaumoron/puzzle/test
+  - github.com/dvaumoron/puzzle/servers/session
+  - github.com/dvaumoron/puzzle/servers/salt
+  - github.com/dvaumoron/puzzle/servers/login
+  - github.com/dvaumoron/puzzle/servers/right
+  - github.com/dvaumoron/puzzle/servers/cachedright
+  - github.com/dvaumoron/puzzle/servers/settings
+  - github.com/dvaumoron/puzzle/servers/profile
+  - github.com/dvaumoron/puzzle/servers/markdown
+  - github.com/dvaumoron/puzzle/servers/blog
+  - github.com/dvaumoron/puzzle/servers/wiki
+  - github.com/dvaumoron/puzzle/servers/forum
+  - github.com/dvaumoron/puzzle/servers/passstrength
+  - github.com/dvaumoron/puzzle/servers/gallery
+  - github.com/dvaumoron/puzzle/servers/gotemplate
 maintainers:
   - name: Denis VAUMORON
     url: linked.com/in/denis-vaumoron-92579187

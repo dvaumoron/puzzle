@@ -3,4 +3,4 @@
 [gRPC](https://grpc.io/) service description to manage user profile.
 
 Implementation proposals:
-- [puzzleprofileserver](https://github.com/dvaumoron/puzzleprofileserver)
+- [puzzleprofileserver](https://github.com/dvaumoron/puzzle/servers/profile)

@@ -22,8 +22,8 @@ import (
 	"context"
 	"errors"
 
-	mongoclient "github.com/dvaumoron/puzzlemongoclient"
-	pb "github.com/dvaumoron/puzzlesessionservice"
+	mongoclient "github.com/dvaumoron/puzzle/clients/mongo"
+	pb "github.com/dvaumoron/puzzle/services/session"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -35,15 +35,19 @@ const SettingsKey = "puzzleSettings"
 
 const collectionName = "settings"
 
-const userIdKey = "userId"
-const settingsKey = collectionName // currently the same
+const (
+	userIdKey   = "userId"
+	settingsKey = collectionName // currently the same
+)
 
 const mongoCallMsg = "Failed during MongoDB call"
 
 var errInternal = errors.New("internal service error")
 
-var optsOnlySettingsField = options.FindOne().SetProjection(bson.D{{Key: settingsKey, Value: true}})
-var optsCreateUnexisting = options.Replace().SetUpsert(true)
+var (
+	optsOnlySettingsField = options.FindOne().SetProjection(bson.D{{Key: settingsKey, Value: true}})
+	optsCreateUnexisting  = options.Replace().SetUpsert(true)
+)
 
 // server is used to implement puzzlesessionservice.SessionServer
 type server struct {

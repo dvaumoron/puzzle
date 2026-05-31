@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlewikiservice
+module github.com/dvaumoron/puzzle/services/wiki
 
 go 1.19
 

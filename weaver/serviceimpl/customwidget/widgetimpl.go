@@ -23,11 +23,11 @@ import (
 	"encoding/json"
 
 	"github.com/ServiceWeaver/weaver"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	widgethelper "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/helper"
-	customwidgetservice "github.com/dvaumoron/puzzleweaver/serviceimpl/customwidget/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	widgetservice "github.com/dvaumoron/puzzleweb/remotewidget/service"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	widgethelper "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/helper"
+	customwidgetservice "github.com/dvaumoron/puzzle/weaver/serviceimpl/customwidget/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	widgetservice "github.com/dvaumoron/puzzle/web/remotewidget/service"
 	"github.com/gin-gonic/gin"
 )
 
@@ -91,7 +91,6 @@ func (impl *remoteWidgetImpl) Process(ctx context.Context, widgetName string, ac
 		return "", "", nil, servicecommon.ErrInternal
 	}
 	return redirect, templateName, resData, nil
-
 }
 
 func convertActions(widget widgethelper.Widget) []customwidgetservice.RawWidgetAction {

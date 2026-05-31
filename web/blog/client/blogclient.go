@@ -24,12 +24,12 @@ import (
 	"slices"
 	"time"
 
-	pb "github.com/dvaumoron/puzzleblogservice"
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	adminservice "github.com/dvaumoron/puzzleweb/admin/service"
-	blogservice "github.com/dvaumoron/puzzleweb/blog/service"
-	"github.com/dvaumoron/puzzleweb/common"
-	profileservice "github.com/dvaumoron/puzzleweb/profile/service"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/blog"
+	adminservice "github.com/dvaumoron/puzzle/web/admin/service"
+	blogservice "github.com/dvaumoron/puzzle/web/blog/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	profileservice "github.com/dvaumoron/puzzle/web/profile/service"
 	"google.golang.org/grpc"
 )
 

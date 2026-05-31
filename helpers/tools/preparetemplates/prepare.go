@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	markdownextension "github.com/dvaumoron/puzzlemarkdownextension"
+	markdownextension "github.com/dvaumoron/puzzle/helpers/markdownextension"
 	"github.com/yuin/goldmark"
 )
 

@@ -23,9 +23,9 @@ import (
 	_ "embed"
 	"os"
 
-	grpcserver "github.com/dvaumoron/puzzlegrpcserver"
-	"github.com/dvaumoron/puzzlerightserver/rightserver"
-	pb "github.com/dvaumoron/puzzlerightservice"
+	grpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	"github.com/dvaumoron/puzzle/servers/right/rightserver"
+	pb "github.com/dvaumoron/puzzle/services/right"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/open-policy-agent/opa/rego"
 	"go.uber.org/zap"

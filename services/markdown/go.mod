@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlemarkdownservice
+module github.com/dvaumoron/puzzle/services/markdown
 
 go 1.19
 

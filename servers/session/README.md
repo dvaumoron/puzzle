@@ -1,3 +1,3 @@
 # puzzlesessionserver
 
-An implementation of a [puzzlesessionservice](https://github.com/dvaumoron/puzzlesessionservice) server calling [Redis](https://redis.io/).
+An implementation of a [puzzlesessionservice](https://github.com/dvaumoron/puzzle/services/session) server calling [Redis](https://redis.io/).

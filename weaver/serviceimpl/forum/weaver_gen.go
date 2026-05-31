@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService",
 		Iface: reflect.TypeOf((*RemoteForumService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(remoteForumImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return remoteForumService_local_stub{impl: impl.(RemoteForumService), tracer: tracer, createMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "CreateMessage", Remote: false}), createThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "CreateThread", Remote: false}), deleteMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "DeleteMessage", Remote: false}), deleteThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "DeleteThread", Remote: false}), getThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "GetThread", Remote: false}), getThreadsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "GetThreads", Remote: false})}
+			return remoteForumService_local_stub{impl: impl.(RemoteForumService), tracer: tracer, createMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "CreateMessage", Remote: false}), createThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "CreateThread", Remote: false}), deleteMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "DeleteMessage", Remote: false}), deleteThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "DeleteThread", Remote: false}), getThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "GetThread", Remote: false}), getThreadsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "GetThreads", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return remoteForumService_client_stub{stub: stub, createMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "CreateMessage", Remote: true}), createThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "CreateThread", Remote: true}), deleteMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "DeleteMessage", Remote: true}), deleteThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "DeleteThread", Remote: true}), getThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "GetThread", Remote: true}), getThreadsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/forum/RemoteForumService", Method: "GetThreads", Remote: true})}
+			return remoteForumService_client_stub{stub: stub, createMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "CreateMessage", Remote: true}), createThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "CreateThread", Remote: true}), deleteMessageMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "DeleteMessage", Remote: true}), deleteThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "DeleteThread", Remote: true}), getThreadMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "GetThread", Remote: true}), getThreadsMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/forum/RemoteForumService", Method: "GetThreads", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return remoteForumService_server_stub{impl: impl.(RemoteForumService), addLoad: addLoad}
@@ -218,7 +219,6 @@ func (s remoteForumService_client_stub) CreateMessage(ctx context.Context, a0 ui
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -279,7 +279,6 @@ func (s remoteForumService_client_stub) CreateThread(ctx context.Context, a0 uin
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -341,7 +340,6 @@ func (s remoteForumService_client_stub) DeleteMessage(ctx context.Context, a0 ui
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -398,7 +396,6 @@ func (s remoteForumService_client_stub) DeleteThread(ctx context.Context, a0 uin
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -455,7 +452,6 @@ func (s remoteForumService_client_stub) GetThread(ctx context.Context, a0 uint64
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -521,7 +517,6 @@ func (s remoteForumService_client_stub) GetThreads(ctx context.Context, a0 uint6
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

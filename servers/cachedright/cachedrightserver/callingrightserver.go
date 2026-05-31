@@ -21,8 +21,8 @@ package cachedrightserver
 import (
 	"context"
 
-	grpcclient "github.com/dvaumoron/puzzlegrpcclient"
-	pb "github.com/dvaumoron/puzzlerightservice"
+	grpcclient "github.com/dvaumoron/puzzle/clients/grpc"
+	pb "github.com/dvaumoron/puzzle/services/right"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

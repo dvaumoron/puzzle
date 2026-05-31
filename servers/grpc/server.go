@@ -23,7 +23,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/dvaumoron/puzzletelemetry"
+	puzzletelemetry "github.com/dvaumoron/puzzle/helpers/telemetry"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"

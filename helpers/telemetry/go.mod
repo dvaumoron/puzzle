@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzletelemetry
+module github.com/dvaumoron/puzzle/helpers/telemetry
 
 go 1.20
 

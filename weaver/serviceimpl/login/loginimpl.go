@@ -23,10 +23,10 @@ import (
 	"errors"
 
 	"github.com/ServiceWeaver/weaver"
-	"github.com/dvaumoron/puzzleloginserver/model"
-	dbclient "github.com/dvaumoron/puzzleweaver/client/db"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	"github.com/dvaumoron/puzzle/servers/login/model"
+	dbclient "github.com/dvaumoron/puzzle/weaver/client/db"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"gorm.io/gorm"
 )
 

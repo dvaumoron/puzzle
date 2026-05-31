@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"time"
 
-	pb "github.com/dvaumoron/puzzlerightservice"
+	pb "github.com/dvaumoron/puzzle/services/right"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

@@ -26,10 +26,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/dvaumoron/puzzleweb/common"
-	"github.com/dvaumoron/puzzleweb/common/config"
-	puzzleweb "github.com/dvaumoron/puzzleweb/core"
-	widgetservice "github.com/dvaumoron/puzzleweb/remotewidget/service"
+	"github.com/dvaumoron/puzzle/web/common"
+	"github.com/dvaumoron/puzzle/web/common/config"
+	puzzleweb "github.com/dvaumoron/puzzle/web/core"
+	widgetservice "github.com/dvaumoron/puzzle/web/remotewidget/service"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

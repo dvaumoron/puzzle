@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlesessionservice
+module github.com/dvaumoron/puzzle/services/session
 
 go 1.19
 

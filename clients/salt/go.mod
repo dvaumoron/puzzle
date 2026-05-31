@@ -1,10 +1,10 @@
-module github.com/dvaumoron/puzzlesaltclient
+module github.com/dvaumoron/puzzle/clients/salt
 
 go 1.19
 
 require (
-	github.com/dvaumoron/puzzlegrpcclient v1.1.0
-	github.com/dvaumoron/puzzlesaltservice v1.0.1
+	github.com/dvaumoron/puzzle/clients/grpc v1.1.0
+	github.com/dvaumoron/puzzle/services/salt v1.0.1
 	golang.org/x/crypto v0.5.0
 	google.golang.org/grpc v1.54.0
 )

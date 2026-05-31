@@ -22,9 +22,9 @@ import (
 	"context"
 
 	"github.com/ServiceWeaver/weaver"
-	mongoclient "github.com/dvaumoron/puzzleweaver/client/mongo"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	mongoclient "github.com/dvaumoron/puzzle/weaver/client/mongo"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -32,21 +32,28 @@ import (
 
 const collectionName = "pages"
 
-const wikiIdKey = "wikiId"
-const wikiRefKey = "ref"
-const versionKey = "version"
-const textKey = "text"
-const userIdKey = "userId"
+const (
+	wikiIdKey  = "wikiId"
+	wikiRefKey = "ref"
+	versionKey = "version"
+	textKey    = "text"
+	userIdKey  = "userId"
+)
 
-var descVersion = bson.D{{Key: versionKey, Value: -1}}
-var contentFields = bson.D{
-	// exclude unused fields
-	{Key: wikiIdKey, Value: false}, {Key: wikiRefKey, Value: false}, {Key: userIdKey, Value: false},
-}
-var optsContentMaxVersion = options.FindOne().SetSort(descVersion).SetProjection(contentFields)
-var optsContentFields = options.FindOne().SetProjection(contentFields)
-var optsVersion = options.Find().SetProjection(
-	bson.D{{Key: versionKey, Value: true}, {Key: userIdKey, Value: true}},
+var (
+	descVersion   = bson.D{{Key: versionKey, Value: -1}}
+	contentFields = bson.D{
+		// exclude unused fields
+		{Key: wikiIdKey, Value: false}, {Key: wikiRefKey, Value: false}, {Key: userIdKey, Value: false},
+	}
+)
+
+var (
+	optsContentMaxVersion = options.FindOne().SetSort(descVersion).SetProjection(contentFields)
+	optsContentFields     = options.FindOne().SetProjection(contentFields)
+	optsVersion           = options.Find().SetProjection(
+		bson.D{{Key: versionKey, Value: true}, {Key: userIdKey, Value: true}},
+	)
 )
 
 type remoteWikiImpl struct {
@@ -162,7 +169,8 @@ func (impl *remoteWikiImpl) Delete(ctx context.Context, wikiId uint64, wikiRef s
 	collection := client.Database(impl.Config().MongoDatabaseName).Collection(collectionName)
 
 	_, err = collection.DeleteMany(ctx, bson.D{
-		{Key: wikiIdKey, Value: wikiId}, {Key: wikiRefKey, Value: wikiRef},
+		{Key: wikiIdKey, Value: wikiId},
+		{Key: wikiRefKey, Value: wikiRef},
 		{Key: versionKey, Value: version},
 	})
 	if err != nil {

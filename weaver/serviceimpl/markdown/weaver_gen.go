@@ -6,23 +6,24 @@ package markdownimpl
 import (
 	"context"
 	"errors"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/markdown/MarkdownService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/markdown/MarkdownService",
 		Iface: reflect.TypeOf((*MarkdownService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(markdownImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return markdownService_local_stub{impl: impl.(MarkdownService), tracer: tracer, applyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/markdown/MarkdownService", Method: "Apply", Remote: false})}
+			return markdownService_local_stub{impl: impl.(MarkdownService), tracer: tracer, applyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/markdown/MarkdownService", Method: "Apply", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return markdownService_client_stub{stub: stub, applyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/markdown/MarkdownService", Method: "Apply", Remote: true})}
+			return markdownService_client_stub{stub: stub, applyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/markdown/MarkdownService", Method: "Apply", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return markdownService_server_stub{impl: impl.(MarkdownService), addLoad: addLoad}
@@ -107,7 +108,6 @@ func (s markdownService_client_stub) Apply(ctx context.Context, a0 string) (r0 s
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

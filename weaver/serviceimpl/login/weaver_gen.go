@@ -7,23 +7,24 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
+
 	"github.com/ServiceWeaver/weaver"
 	"github.com/ServiceWeaver/weaver/runtime/codegen"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
-	"reflect"
 )
 
 func init() {
 	codegen.Register(codegen.Registration{
-		Name:  "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService",
+		Name:  "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService",
 		Iface: reflect.TypeOf((*RemoteLoginService)(nil)).Elem(),
 		Impl:  reflect.TypeOf(loginImpl{}),
 		LocalStubFn: func(impl any, caller string, tracer trace.Tracer) any {
-			return remoteLoginService_local_stub{impl: impl.(RemoteLoginService), tracer: tracer, changeLoginMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ChangeLogin", Remote: false}), changePasswordMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ChangePassword", Remote: false}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Delete", Remote: false}), getUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "GetUsers", Remote: false}), listUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ListUsers", Remote: false}), registerMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Register", Remote: false}), verifyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Verify", Remote: false})}
+			return remoteLoginService_local_stub{impl: impl.(RemoteLoginService), tracer: tracer, changeLoginMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ChangeLogin", Remote: false}), changePasswordMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ChangePassword", Remote: false}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Delete", Remote: false}), getUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "GetUsers", Remote: false}), listUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ListUsers", Remote: false}), registerMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Register", Remote: false}), verifyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Verify", Remote: false})}
 		},
 		ClientStubFn: func(stub codegen.Stub, caller string) any {
-			return remoteLoginService_client_stub{stub: stub, changeLoginMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ChangeLogin", Remote: true}), changePasswordMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ChangePassword", Remote: true}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Delete", Remote: true}), getUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "GetUsers", Remote: true}), listUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "ListUsers", Remote: true}), registerMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Register", Remote: true}), verifyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzleweaver/serviceimpl/login/RemoteLoginService", Method: "Verify", Remote: true})}
+			return remoteLoginService_client_stub{stub: stub, changeLoginMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ChangeLogin", Remote: true}), changePasswordMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ChangePassword", Remote: true}), deleteMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Delete", Remote: true}), getUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "GetUsers", Remote: true}), listUsersMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "ListUsers", Remote: true}), registerMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Register", Remote: true}), verifyMetrics: codegen.MethodMetricsFor(codegen.MethodLabels{Caller: caller, Component: "github.com/dvaumoron/puzzle/weaver/serviceimpl/login/RemoteLoginService", Method: "Verify", Remote: true})}
 		},
 		ServerStubFn: func(impl any, addLoad func(uint64, float64)) codegen.Server {
 			return remoteLoginService_server_stub{impl: impl.(RemoteLoginService), addLoad: addLoad}
@@ -240,7 +241,6 @@ func (s remoteLoginService_client_stub) ChangeLogin(ctx context.Context, a0 uint
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -301,7 +301,6 @@ func (s remoteLoginService_client_stub) ChangePassword(ctx context.Context, a0 u
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -360,7 +359,6 @@ func (s remoteLoginService_client_stub) Delete(ctx context.Context, a0 uint64) (
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -415,7 +413,6 @@ func (s remoteLoginService_client_stub) GetUsers(ctx context.Context, a0 []uint6
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -471,7 +468,6 @@ func (s remoteLoginService_client_stub) ListUsers(ctx context.Context, a0 uint64
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -532,7 +528,6 @@ func (s remoteLoginService_client_stub) Register(ctx context.Context, a0 string,
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.
@@ -590,7 +585,6 @@ func (s remoteLoginService_client_stub) Verify(ctx context.Context, a0 string, a
 			span.SetStatus(codes.Error, err.Error())
 		}
 		span.End()
-
 	}()
 
 	// Preallocate a buffer of the right size.

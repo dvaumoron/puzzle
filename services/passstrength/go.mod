@@ -1,4 +1,4 @@
-module github.com/dvaumoron/puzzlepassstrengthservice
+module github.com/dvaumoron/puzzle/services/passstrength
 
 go 1.20
 

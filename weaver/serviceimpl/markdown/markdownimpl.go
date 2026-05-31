@@ -23,8 +23,8 @@ import (
 	"strings"
 
 	"github.com/ServiceWeaver/weaver"
-	servicecommon "github.com/dvaumoron/puzzleweaver/serviceimpl/common"
-	"github.com/dvaumoron/puzzleweb/common"
+	servicecommon "github.com/dvaumoron/puzzle/weaver/serviceimpl/common"
+	"github.com/dvaumoron/puzzle/web/common"
 )
 
 type markdownImpl struct {

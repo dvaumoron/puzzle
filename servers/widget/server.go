@@ -23,25 +23,31 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/dvaumoron/puzzlegrpcserver"
-	pb "github.com/dvaumoron/puzzlewidgetservice"
+	puzzlegrpcserver "github.com/dvaumoron/puzzle/servers/grpc"
+	pb "github.com/dvaumoron/puzzle/services/widget"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 )
 
-const formKey = "formData"
-const dataKey = "puzzledata.json"
-const filesKey = "Files"
-const urlKey = "CurrentUrl"
-const userKey = "Id"
+const (
+	formKey  = "formData"
+	dataKey  = "puzzledata.json"
+	filesKey = "Files"
+	urlKey   = "CurrentUrl"
+	userKey  = "Id"
+)
 
-var errWidgetNotFound = errors.New("widget not found")
-var errActionNotFound = errors.New("action not found")
-var errInternal = errors.New("internal service error")
+var (
+	errWidgetNotFound = errors.New("widget not found")
+	errActionNotFound = errors.New("action not found")
+	errInternal       = errors.New("internal service error")
+)
 
-type Data = map[string]any
-type ActionHandler = func(context.Context, Data) (string, string, []byte, error)
+type (
+	Data          = map[string]any
+	ActionHandler = func(context.Context, Data) (string, string, []byte, error)
+)
 
 type action struct {
 	kind       pb.MethodKind

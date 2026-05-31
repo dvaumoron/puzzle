@@ -22,9 +22,9 @@ import (
 	"context"
 	"errors"
 
-	dbclient "github.com/dvaumoron/puzzledbclient"
-	"github.com/dvaumoron/puzzleforumserver/model"
-	pb "github.com/dvaumoron/puzzleforumservice"
+	dbclient "github.com/dvaumoron/puzzle/clients/db"
+	"github.com/dvaumoron/puzzle/servers/forum/model"
+	pb "github.com/dvaumoron/puzzle/services/forum"
 	"github.com/uptrace/opentelemetry-go-extra/otelzap"
 	"go.uber.org/zap"
 	"gorm.io/gorm"

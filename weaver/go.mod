@@ -1,15 +1,15 @@
-module github.com/dvaumoron/puzzleweaver
+module github.com/dvaumoron/puzzle/weaver
 
 go 1.21.3
 
 require (
 	github.com/ServiceWeaver/weaver v0.23.0
 	github.com/dvaumoron/partrenderer v0.3.0
-	github.com/dvaumoron/puzzleforumserver v1.7.0
-	github.com/dvaumoron/puzzleloginserver v1.7.0
-	github.com/dvaumoron/puzzlemarkdownextension v1.10.0
-	github.com/dvaumoron/puzzlerightserver v1.8.6
-	github.com/dvaumoron/puzzleweb v1.11.4
+	github.com/dvaumoron/puzzle/servers/forum v1.7.0
+	github.com/dvaumoron/puzzle/servers/login v1.7.0
+	github.com/dvaumoron/puzzle/helpers/markdownextension v1.10.0
+	github.com/dvaumoron/puzzle/servers/right v1.8.6
+	github.com/dvaumoron/puzzle/web v1.11.4
 	github.com/gin-gonic/gin v1.9.1
 	github.com/open-policy-agent/opa v0.56.0
 	github.com/redis/go-redis/extra/redisotel/v9 v9.0.5
